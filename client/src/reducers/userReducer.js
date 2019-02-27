@@ -4,6 +4,18 @@ function userReducer (state={}, action) {
             return {
                 ...state,
                 redirect: action.redirect
+            }   
+
+        case 'LOGIN_SUCCESS':
+            return {
+                ...state,
+                currentUser: action.user
+            }
+        case 'LOGIN_FAILURE': 
+            return {
+                ...state,
+                curentUser: '',
+                error: action.error
             }
         case 'SIGNUP_FAILURE':
             return {

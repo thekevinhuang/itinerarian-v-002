@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {signupUser} from '../../actions/userActions'
+import {Redirect} from 'react-router-dom'
 
 
 const initialState = {
@@ -36,7 +37,7 @@ class Signup extends Component {
 
     render() {
         if(this.props.user.redirect) {
-            return <div>Redirect to Login Page</div>
+            return <div><Redirect to="/login"/></div>
         } else if(this.props.user.error){
             return <div>Error!</div>
         } else {
@@ -44,13 +45,13 @@ class Signup extends Component {
                 <div>
                     <h1>Sign up for your Itinerarian!</h1>
                     <form onSubmit={this.signupSubmitHandle}>
-                        <label>Username</label>
+                        <label>Username</label><br/>
                         <input type="text" name="username" onChange={this.signupChange} value={this.state.username}/><br/>
 
-                        <label>Email</label>
+                        <label>Email</label><br/>
                         <input type="text" name="email" onChange={this.signupChange} value={this.state.email}/><br/>
 
-                        <label>Password</label>
+                        <label>Password</label><br/>
                         <input type="text" name="password" onChange={this.signupChange} value={this.state.password}/><br/>
 
                         <input type="submit" value="Signup!"/>

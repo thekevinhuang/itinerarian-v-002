@@ -19,3 +19,32 @@ export function signupUser(user) {
         })
     }
 }
+
+export function loginUser(user) {
+    return function(dispatch) {
+        return fetch('/api/signin', {
+            method: 'POST', 
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            credentials: 'same-origin',
+            body: JSON.stringify({user:user})
+        })
+        .then(res=>res.json())
+        .then((responseJson)=> {
+            if(!responseJson.error){
+                dispatch({type: 'LOGIN_SUCCESS', user: responseJson})
+                if (typeof localStorage === 'object') {
+                    try {
+                        localStorage.setItem('current_user', JSON.stringify(responseJson))
+                    } catch (e) {
+                        alert("There was an issue!")
+                    }
+                }
+            } else {
+                dispatch({type: 'LOGIN_FAILURE', error: responseJson.error})
+            }
+        })
+    }
+}
