@@ -52,7 +52,7 @@ class Signup extends Component {
                         <input type="text" name="email" onChange={this.signupChange} value={this.state.email}/><br/>
 
                         <label>Password</label><br/>
-                        <input type="text" name="password" onChange={this.signupChange} value={this.state.password}/><br/>
+                        <input type="password" name="password" onChange={this.signupChange} value={this.state.password}/><br/>
 
                         <input type="submit" value="Signup!"/>
                     </form>

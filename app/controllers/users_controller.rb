@@ -30,12 +30,6 @@ class UsersController < ApplicationController
 
         if @user && @user.authenticate(params[:user][:password])
             render json: @user
-        else
-            render json: {
-                errors: {
-                    message: "there was an error with authenticating"
-                }
-            }
         end
     end
 

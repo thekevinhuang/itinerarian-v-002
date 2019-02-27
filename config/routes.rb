@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   scope '/api' do
     resources :users
 
-    post '/signin' => 'user#login'
+    post '/signin' => 'users#login'
   end
 
 end

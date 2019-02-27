@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {connect} from 'redux'
+import {connect} from 'react-redux'
 import {loginUser} from '../../actions/userActions'
 
 const initialState={
@@ -54,7 +54,7 @@ class Login extends Component {
                         <input type="text" name="username" onChange={this.loginChange} value={this.state.username}/><br/>
 
                         <label>Password</label><br/>
-                        <input type="text" name="password" onChange={this.loginChange} value={this.state.password}/><br/>
+                        <input type="password" name="password" onChange={this.loginChange} value={this.state.password}/><br/>
 
                         <input type="submit" value="Login!"/>
                     </form>
