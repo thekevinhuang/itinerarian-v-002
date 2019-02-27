@@ -18,6 +18,21 @@ class Signup extends Component {
         this.state=initialState
     }
 
+    componentDidMount() {
+        if(typeof localStorage==='object') {
+            try {
+                const currentUser = localStorage.getItem('curent_user')
+                if (currentUser.id >= 0){
+                    this.setState({
+                        redirect: true
+                    })
+                }
+            } catch (e) {
+                alert('Signup component error')
+            }
+        }
+    }
+
     signupSubmitHandle = (event) => {
         event.preventDefault()
         const user = {
