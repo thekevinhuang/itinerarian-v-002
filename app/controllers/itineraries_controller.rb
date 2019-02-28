@@ -1,7 +1,8 @@
 class ItinerariesController < ApplicationController
     def create
+        
         @itinerary = Itinerary.new(itinerary_params)
-
+        
         if @itinerary.save
             render json: @itinerary
         else
@@ -17,7 +18,7 @@ class ItinerariesController < ApplicationController
 
     def index
         if (params[:user_id])
-            @itineraries = Itinerary.all.select{|itinerary| itinerary.user_id ==params[:user_id]}
+            @itineraries = Itinerary.where(user_id: params[:user_id])
         else
             @itineraries = Itinerary.all
         end

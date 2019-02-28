@@ -2,12 +2,12 @@ export function addItinerary(itinerary) {
     return function(dispatch) {
         return fetch(`/api/users/${itinerary.user_id}/itineraries`, {
             method: 'POST',
-            header: {
+            headers: {
                 Accept: 'application/json',
-                'Content-Type': 'application/json',
+                'Content-Type':'application/json'
             },
             credentials: 'same-origin',
-            body: JSON.stringify({itinerary: itinerary})
+            body: JSON.stringify({itinerary:itinerary})
         })
         .then(res=>res.json())
         .then((responseJson) => {

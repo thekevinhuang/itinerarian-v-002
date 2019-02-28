@@ -21,9 +21,11 @@ class ItinerariesContainer extends Component {
     componentDidMount() {
         if(typeof localStorage==='object') {
             try {
-                const currentUser = localStorage.getItem('current_user')
+                const current_user_string = localStorage.getItem('current_user')
+                var currentUser = JSON.parse(current_user_string)
                 this.setState({
-                    currentUser: currentUser
+                    currentUser: currentUser,
+                    loggedin: true
                 })
             } catch (e) {
                 alert('ItinerariesContainer component error')

@@ -5,6 +5,7 @@ const initialState = {
     description: "",
     start_date: "",
     end_date: "",
+    currentUser: ''
 }
 
 class ItineraryNew extends Component {
@@ -13,15 +14,35 @@ class ItineraryNew extends Component {
         this.state=initialState
     }
 
+    componentDidMount() {
+        if(typeof localStorage==='object') {
+            try {
+                const current_user_string = localStorage.getItem('current_user')
+                var currentUser = JSON.parse(current_user_string)
+                this.setState({
+                    currentUser: currentUser
+                })
+            } catch (e) {
+                alert('Itinerary New component error')
+            }
+        }
+    }
 
     itineraryNewSubmit = event => {
         event.preventDefault()
         const itinerary = {
             name: this.state.name,
-            description: this.state.description
+            description: this.state.description,
+            user_id: this.state.currentUser.id
         }
+        
         this.props.addItinerary(itinerary)
-        this.setState(initialState)
+        this.setState({
+            name: "",
+            description: "",
+            start_date: "",
+            end_date: "",
+        })
     }
 
     itineraryNewChange = event => {
@@ -31,7 +52,6 @@ class ItineraryNew extends Component {
     }
 
     render() {
-        if(this.props.currentUser) {
             return (
                 <form onSubmit={this.itineraryNewSubmit}>
                     <label>Name</label><br/>
@@ -49,9 +69,6 @@ class ItineraryNew extends Component {
                     <input type="submit" value="Create new Itinerary"/>
                 </form>
             )
-        }else {
-            return( <div>You need to be logged in to view this page.</div>)
-        }
         
     }
 }
