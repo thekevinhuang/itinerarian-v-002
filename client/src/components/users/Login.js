@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {loginUser} from '../../actions/userActions'
+import {Redirect} from 'react-router-dom'
 
 const initialState={
     username: '',
@@ -44,7 +45,7 @@ class Login extends Component {
 
     render() {
         if(this.state.currentUser||this.props.currentUser){
-            return <div>Time to Redirect!</div>
+            return <div><Redirect to="/itineraries"/></div>
         } else {
             return (
                 <div>

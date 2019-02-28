@@ -28,6 +28,8 @@ class App extends Component {
             <Route exact path="/signup" component={Signup}/>
             <Route exact path="/login" component={Login}/>
           </Switch>
+            <Route path="/itineraries" render={(routerProps) => <ItinerariesContainer {...routerProps}/>}/>
+            
         </React.Fragment>
       </Router>
     );
