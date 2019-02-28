@@ -27,6 +27,7 @@ class ItinerariesContainer extends Component {
                     currentUser: currentUser,
                     loggedin: true
                 })
+                this.props.fetchItineraries(currentUser.id)
             } catch (e) {
                 alert('ItinerariesContainer component error')
             }

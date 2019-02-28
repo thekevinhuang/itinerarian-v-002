@@ -1,0 +1,1 @@
+Need to adjust the actions/reducer so that the state is correct and the itineraries component correctly renders the list.

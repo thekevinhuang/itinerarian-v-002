@@ -5,7 +5,7 @@ function itineraryReducer (state={}, action) {
             return {...state, itineraries:[...state, action.itinerary]}
 
         case 'FETCH_ITINERARIES' :
-            return action.itineraries
+            return {...state, itineraries:action.itineraries}
 
         case 'FETCH_ITINERARY' :
             return {...state, searchitinerary: action.itinerary}
@@ -22,3 +22,5 @@ function itineraryReducer (state={}, action) {
             return state
     }
 }
+
+export default itineraryReducer
