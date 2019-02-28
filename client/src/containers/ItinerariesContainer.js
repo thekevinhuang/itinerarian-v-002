@@ -1,18 +1,43 @@
 import React, {Component} from 'react'
-import {connect, Route} from 'react-router-dom'
+import {connect} from 'react-redux'
+import {Route} from 'react-router-dom'
 import {fetchItineraries, addItinerary, showItinerary} from '../actions/itineraryActions'
 import ItineraryNew from '../components/itineraries/ItineraryNew'
 import ItineraryShow from '../components/itineraries/ItineraryShow'
 import Itineraries from '../components/itineraries/Itineraries'
 
+const initialState={
+    currentUser: '',
+    loggedin:false
+}
+
 class ItinerariesContainer extends Component {
+
+    constructor () {
+        super()
+        this.state=initialState
+    }
+
+    componentDidMount() {
+        if(typeof localStorage==='object') {
+            try {
+                const currentUser = localStorage.getItem('current_user')
+                this.setState({
+                    currentUser: currentUser
+                })
+            } catch (e) {
+                alert('ItinerariesContainer component error')
+            }
+        }
+    }
+
     render () {
         return (
             <div>
                 <h1>Itineraries</h1>
                 <Route exact path={`${this.props.match.url}`} render={(props)=> (
                     <div>
-                        <ItineraryNew addItinerary={this.props.addItinerary}/>
+                        <ItineraryNew addItinerary={this.props.addItinerary} currentUser={this.state.currentUser}/>
                         <Itineraries itineraries={this.props.itineraries}/>
                     </div>
                 )}/>
