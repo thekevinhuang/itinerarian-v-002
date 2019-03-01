@@ -7,7 +7,7 @@ function itineraryReducer (state={}, action) {
         case 'FETCH_ITINERARIES' :
             return {...state, itineraries:action.itineraries}
 
-        case 'FETCH_ITINERARY' :
+        case 'SHOW_ITINERARY' :
             return {...state, searchitinerary: action.itinerary}
         
         case 'ADD_ITINERARY_FAILURE' :
@@ -16,8 +16,9 @@ function itineraryReducer (state={}, action) {
         case 'FETCH_ITINERARIES_FAILURE':
             return {...state, error:action.error}
         
-        case 'FETCH_ITINERARY_FAILURE':
+        case 'SHOW_ITINERARY_FAILURE':
             return {...state, error:action.error}
+            
         default:
             return state
     }

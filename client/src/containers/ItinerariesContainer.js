@@ -41,7 +41,7 @@ class ItinerariesContainer extends Component {
                 <Route exact path={`${this.props.match.url}`} render={(props)=> (
                     <div>
                         <ItineraryNew addItinerary={this.props.addItinerary} currentUser={this.state.currentUser}/>
-                        <Itineraries itineraries={this.props.itineraries}/>
+                        <Itineraries itineraries={this.props.itineraries.itineraries}/>
                     </div>
                 )}/>
                 <Route path={`${this.props.match.url}/:itinerary_id`} render={(props)=> <div><ItineraryShow /></div>}/>
