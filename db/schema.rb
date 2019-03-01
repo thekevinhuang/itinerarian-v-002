@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_28_021520) do
+ActiveRecord::Schema.define(version: 2019_03_01_022722) do
+
+  create_table "itin_dates", force: :cascade do |t|
+    t.date "date"
+    t.integer "itinerary_id"
+  end
 
   create_table "itineraries", force: :cascade do |t|
     t.string "name"

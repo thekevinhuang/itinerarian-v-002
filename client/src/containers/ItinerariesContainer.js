@@ -44,7 +44,7 @@ class ItinerariesContainer extends Component {
                         <Itineraries itineraries={this.props.itineraries.itineraries}/>
                     </div>
                 )}/>
-                <Route path={`${this.props.match.url}/:itinerary_id`} render={(props)=> <div><ItineraryShow /></div>}/>
+                <Route path={`${this.props.match.url}/:itinerary_id`} render={(props)=> <div><ItineraryShow showItinerary={this.props.showItinerary} singleItinerary={this.props.singleItinerary} {...props}/></div>}/>
             </div>
         )
     }
@@ -52,7 +52,8 @@ class ItinerariesContainer extends Component {
 
 const mapStateToProps = state => {
     return {
-        itineraries: state.itineraries
+        itineraries: state.itineraries,
+        singleItinerary: state.singleItinerary
     }
 }
 
