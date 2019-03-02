@@ -19,3 +19,24 @@ export function addItinDate(itinDate) {
         })
     }
 }
+
+export function showItinDate(itin_date_id) {
+    return function(dispatch) {
+        return fetch(`/api/itindates/${itin_date_id}`, {
+            method: 'GET',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type':'application/json'
+            },
+            credentials: 'same-origin'
+        })
+        .then(res=>res.json())
+        .then((responseJson)=> {
+            if(!responseJson.error) {
+                dispatch({type:"SHOW_ITIN_DATE", itinDate: responseJson})
+            } else {
+                dispatch({type:"SHOW_ITIN_DATE_FAILURE", error: responseJson.error})
+            }
+        })
+    }
+}

@@ -7,8 +7,10 @@ import Home from './components/Home'
 import Signup from './components/users/Signup'
 import Login from './components/users/Login'
 import ItinerariesContainer from './containers/ItinerariesContainer'
+import ItinDatesContainer from './containers/ItinDatesContainer'
 
 import './App.css';
+import ItinDatesContainer from './containers/ItinDatesContainer';
 
 class App extends Component {
 
@@ -43,6 +45,7 @@ class App extends Component {
             <Route exact path="/login" component={Login}/>
           </Switch>
             <Route path="/itineraries" render={(routerProps) => <ItinerariesContainer {...routerProps}/>}/>
+            <Route path="/dates" render={(routerProps)=> <ItinDatesContainer {...routerProps}/>}/>
             
         </React.Fragment>
       </Router>

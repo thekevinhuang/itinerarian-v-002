@@ -9,7 +9,7 @@ class ItinDatesContainer extends Component {
         return(
             <div>
                 <Route path="/itineraries" render={(routerProps) => <ItinDates itinerary={this.props.itinerary} {...routerProps}/>}/>
-                <Route path="/dates/:date_id" render={(routerProps) => <ItinDateShow {...routerProps}/>}/>
+                <Route path="/dates/:itin_date_id" render={(routerProps) => <ItinDateShow {...routerProps}/>}/>
             </div>
         )
     }
