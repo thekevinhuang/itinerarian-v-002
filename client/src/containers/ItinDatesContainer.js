@@ -1,5 +1,8 @@
 import React, {Component} from 'react'
 import {Route} from 'react-router-dom'
+import ItinDates from '../components/itin_dates/ItinDates'
+import ItinDateShow from '../components/itin_dates/ItinDateShow'
+
 
 class ItinDatesContainer extends Component {
     render() {
@@ -12,10 +15,4 @@ class ItinDatesContainer extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        
-    }
-}
-
-export default connect(mapStateToProps)(ItinDatesContainer)
+export default ItinDatesContainer
