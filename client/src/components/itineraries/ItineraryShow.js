@@ -1,27 +1,35 @@
 import React, {Component} from 'react'
-
-const initialState= {
-    currItinerary:""
-}
+import {connect} from 'react-redux'
 
 class ItineraryShow extends Component {
-    constructor() {
-        super()
-        this.state=initialState
+    
+    componentDidMount() {
+        this.props.showItinerary(this.props.match.params.itinerary_id)
     }
 
-componentDidMount() {
-    this.props.showItinerary(this.props.match.params.itinerary_id)
-    this.setState({
-        currItinerary : this.props.singleItinerary
-    })
-}
+    renderShow = () => {
+        
+        if(this.props.currItinerary){
+            return <div>{this.props.currItinerary.name}</div>
+        } else {
+            return <div>error</div> 
+        }
+    }
 
     render() {
+        
         return (
-            <div>{this.state.currItinerary.name}</div>   
+            <div>{this.renderShow()} </div> 
         )
     }
 }
 
-export default ItineraryShow
+const mapStateToProps = state => {
+    
+    return {
+        currItinerary : state.itineraries.itinerary
+    }
+}
+
+
+export default connect(mapStateToProps)(ItineraryShow)

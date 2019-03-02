@@ -1,1 +1,5 @@
-Need to adjust the actions/reducer so that the state is correct and the itineraries component correctly renders the list.
+1) Need to fix the show loading for itineraries
+2) adding dates to itineraries
+3) date/show
+
+Why isn't the itinerary show function loading the state?

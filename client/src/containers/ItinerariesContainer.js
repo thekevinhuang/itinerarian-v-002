@@ -28,6 +28,7 @@ class ItinerariesContainer extends Component {
                     loggedin: true
                 })
                 this.props.fetchItineraries(currentUser.id)
+                
             } catch (e) {
                 alert('ItinerariesContainer component error')
             }
@@ -44,16 +45,16 @@ class ItinerariesContainer extends Component {
                         <Itineraries itineraries={this.props.itineraries.itineraries}/>
                     </div>
                 )}/>
-                <Route path={`${this.props.match.url}/:itinerary_id`} render={(props)=> <div><ItineraryShow showItinerary={this.props.showItinerary} singleItinerary={this.props.singleItinerary} {...props}/></div>}/>
+                <Route path={`${this.props.match.url}/:itinerary_id`} render={(props)=> <div><ItineraryShow showItinerary={this.props.showItinerary} {...props}/></div>}/>
             </div>
         )
     }
 }
 
 const mapStateToProps = state => {
+    
     return {
-        itineraries: state.itineraries,
-        singleItinerary: state.singleItinerary
+        itineraries: state.itineraries
     }
 }
 

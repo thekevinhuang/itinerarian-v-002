@@ -1,5 +1,7 @@
 function itineraryReducer (state={}, action) {
+    
     switch(action.type) {
+        
         case 'ADD_ITINERARY' :
 
             return {...state, itineraries:[...state, action.itinerary]}
@@ -8,7 +10,7 @@ function itineraryReducer (state={}, action) {
             return {...state, itineraries:action.itineraries}
 
         case 'SHOW_ITINERARY' :
-            return {...state, singleItinerary: action.itinerary}
+            return {...state, itinerary: action.itinerary}
         
         case 'ADD_ITINERARY_FAILURE' :
             return {...state, error: action.error}

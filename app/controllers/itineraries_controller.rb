@@ -11,7 +11,7 @@ class ItinerariesController < ApplicationController
     end
 
     def show
-        @itinerary = Itinerary.find_by(id: params[:itinerary_id])
+        @itinerary = Itinerary.where(id: params[:id])
 
         render json: @itinerary
     end

@@ -54,10 +54,12 @@ export function showItinerary(itinerary_id) {
         })
         .then(res=> res.json())
         .then((itinerary)=> {
-            if(!itinerary.error) {
-                dispatch({type: "SHOW_ITINERARY", itinerary: itinerary})
+            
+            if(!itinerary[0].error) {
+
+                dispatch({type: "SHOW_ITINERARY", itinerary: itinerary[0]})
             } else {
-                dispatch({type:"SHOE_ITINERARY_FAILURE", error: itinerary.error})
+                dispatch({type:"SHOW_ITINERARY_FAILURE", error: itinerary.error})
             }
         })
     }
