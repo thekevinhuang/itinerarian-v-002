@@ -2,7 +2,14 @@ class ItinerariesController < ApplicationController
     def create
         
         @itinerary = Itinerary.new(itinerary_params)
-        
+
+        startDate= Date.parse(itinerary_dates[:start_date])
+        endDate = Date.parse(itinerary_dates[:end_date])
+
+        (startDate..endDate).each do |date|
+            @itinerary.itin_dates.build(date: date)
+        end
+
         if @itinerary.save
             render json: @itinerary
         else
@@ -29,5 +36,9 @@ class ItinerariesController < ApplicationController
 
     def itinerary_params
         params.require(:itinerary).permit(:name, :description, :user_id)
+    end
+
+    def itinerary_dates
+        params.require(:itinerary).permit(:start_date, :end_date)
     end
 end

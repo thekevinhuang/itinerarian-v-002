@@ -2,9 +2,11 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Route} from 'react-router-dom'
 import {fetchItineraries, addItinerary, showItinerary} from '../actions/itineraryActions'
+import {addItinDate} from '../actions/itinDateActions'
 import ItineraryNew from '../components/itineraries/ItineraryNew'
 import ItineraryShow from '../components/itineraries/ItineraryShow'
 import Itineraries from '../components/itineraries/Itineraries'
+
 
 const initialState={
     currentUser: '',
@@ -62,7 +64,8 @@ const mapDispatchToProps = dispatch => {
     return {
         fetchItineraries : (user_id) => dispatch(fetchItineraries(user_id)),
         addItinerary : (itinerary) => dispatch(addItinerary(itinerary)),
-        showItinerary : (itinerary_id) => dispatch(showItinerary(itinerary_id))
+        showItinerary : (itinerary_id) => dispatch(showItinerary(itinerary_id)),
+        addItinDate : (itin_date) => dispatch(addItinDate(itin_date))
     }
 }
 

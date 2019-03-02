@@ -4,7 +4,7 @@ function itineraryReducer (state={}, action) {
         
         case 'ADD_ITINERARY' :
 
-            return {...state, itineraries:[...state, action.itinerary]}
+            return {...state, itineraries:[...state.itineraries, action.itinerary]}
 
         case 'FETCH_ITINERARIES' :
             return {...state, itineraries:action.itineraries}

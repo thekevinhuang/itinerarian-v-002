@@ -33,10 +33,13 @@ class ItineraryNew extends Component {
         const itinerary = {
             name: this.state.name,
             description: this.state.description,
-            user_id: this.state.currentUser.id
+            user_id: this.state.currentUser.id,
+            start_date: this.state.start_date,
+            end_date: this.state.end_date
         }
         
         this.props.addItinerary(itinerary)
+
         this.setState({
             name: "",
             description: "",
