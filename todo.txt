@@ -1,3 +1,1 @@
-1) start building out point addition to itindates
-
-Why isn't the itinerary show function loading the state?
+1) start building out point addition to itindates - back end first

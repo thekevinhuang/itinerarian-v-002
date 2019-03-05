@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     resources :users
     resources :itineraries
     resources :itin_dates
+    resources :ipoints
 
     resources :users do
       resources :itineraries
@@ -12,6 +13,9 @@ Rails.application.routes.draw do
       resources :itin_dates
     end
     
+    resources :itin_dates do
+      resources :ipoints
+    end
 
     post '/signin' => 'users#login'
   end
