@@ -56,10 +56,9 @@ export function showItinerary(itinerary_id) {
         .then((itinerary)=> {
             
             if(!itinerary[0].error) {
-
                 dispatch({type: "SHOW_ITINERARY", itinerary: itinerary[0]})
             } else {
-                dispatch({type:"SHOW_ITINERARY_FAILURE", error: itinerary.error})
+                dispatch({type:"SHOW_ITINERARY_FAILURE", error: itinerary[0].error})
             }
         })
     }

@@ -11,7 +11,7 @@ class ItinDatesController < ApplicationController
     end
 
     def show
-        @itin_date = ItinDate.find_by(id: params[:itin_date_id])
+        @itin_date = ItinDate.find_by(id: params[:id])
 
         render json: @itin_date
     end

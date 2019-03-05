@@ -20,7 +20,7 @@ class ItineraryShow extends Component {
             )
 
         } else {
-            return <div>error</div> 
+            return <div>Itinerary Loading</div> 
         }
     }
 

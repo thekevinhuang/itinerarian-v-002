@@ -10,7 +10,7 @@ import ItinerariesContainer from './containers/ItinerariesContainer'
 import ItinDatesContainer from './containers/ItinDatesContainer'
 
 import './App.css';
-import ItinDatesContainer from './containers/ItinDatesContainer';
+
 
 class App extends Component {
 
