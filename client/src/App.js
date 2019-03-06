@@ -8,6 +8,7 @@ import Signup from './components/users/Signup'
 import Login from './components/users/Login'
 import ItinerariesContainer from './containers/ItinerariesContainer'
 import ItinDatesContainer from './containers/ItinDatesContainer'
+import IpointsContainer from './containers/IpointsContainer'
 
 import './App.css';
 
@@ -46,6 +47,7 @@ class App extends Component {
           </Switch>
             <Route path="/itineraries" render={(routerProps) => <ItinerariesContainer {...routerProps}/>}/>
             <Route path="/dates" render={(routerProps)=> <ItinDatesContainer {...routerProps}/>}/>
+            <Route path="/points" render={(routerProps)=> <IpointsContainer{...routerProps}/>}/>
             
         </React.Fragment>
       </Router>

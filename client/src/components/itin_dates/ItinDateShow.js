@@ -13,6 +13,7 @@ class ItinDateShow extends Component {
             return(
                 <div>
                     <h1>{this.props.itinDate.date}</h1>
+                    <IpointsContainer itinDate={this.props.itinDate}/>
                 </div>
             )
         }else {
