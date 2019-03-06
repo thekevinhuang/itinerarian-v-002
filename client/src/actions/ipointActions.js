@@ -1,4 +1,4 @@
-function addIpoint (ipoint) {
+export function addIpoint (ipoint) {
     return function(dispatch) {
         return fetch (`/api/itin_dates/${ipoint.itin_date_id}/ipoints`, {
             method: 'POST',
@@ -20,7 +20,8 @@ function addIpoint (ipoint) {
     }
 }
 
-function fetchIpoints(itin_date_id) {
+export function fetchIpoints(itin_date_id) {
+    
     return function(dispatch) {
         return fetch (`/api/itin_dates/${itin_date_id}/ipoints`, {
             method: 'GET',
@@ -32,6 +33,7 @@ function fetchIpoints(itin_date_id) {
         })
         .then(res=>res.json())
         .then((ipoints)=> {
+            
             if(!ipoints.error) {
                 dispatch({type:"FETCH_IPOINTS", ipoints: ipoints})
             } else {

@@ -14,12 +14,13 @@ class IpointsContainer extends Component {
     }
 
     render() {
+        
         return (
             <div>
-                <Route path='/dates' render={(routerProps)=> (
+                <Route path='/dates/:itin_date_id' render={(routerProps)=> (
                     <div>
                         <IpointNew addIpoint={this.props.addIpoint} itinDate={this.props.itinDate}/>
-                        <Ipoints ipoints={this.props.ipoints}/>
+                        <Ipoints ipoints={this.props.ipoints.ipoints}/>
                     </div>
                 )}/>
                 <Route path='/points/:ipoint_id' render={(routerProps)=> <IpointShow {...routerProps}/>}/>

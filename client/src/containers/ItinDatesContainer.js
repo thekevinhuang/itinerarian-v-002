@@ -5,7 +5,9 @@ import ItinDateShow from '../components/itin_dates/ItinDateShow'
 
 
 class ItinDatesContainer extends Component {
+    
     render() {
+        
         return(
             <div>
                 <Route path="/itineraries" render={(routerProps) => <ItinDates itinerary={this.props.itinerary} {...routerProps}/>}/>

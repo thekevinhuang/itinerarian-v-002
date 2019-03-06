@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {showItinDate} from '../../actions/itinDateActions'
+import IpointsContainer from '../../containers/IpointsContainer'
 
 class ItinDateShow extends Component {
 

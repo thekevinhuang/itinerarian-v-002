@@ -4,7 +4,12 @@ import Ipoint from './Ipoint'
 class Ipoints extends Component {
 
     renderIpoints = () => {
-        this.props.ipoints.map((ipoint, index)=><Ipoint ipoint={ipoint}/>)
+        if(this.props.ipoints){
+            return this.props.ipoints.map((ipoint, index) => <Ipoint ipoint={ipoint}/>)
+        } else {
+            return <div>Create some Points!</div>
+        }
+        
     }
 
     render() {

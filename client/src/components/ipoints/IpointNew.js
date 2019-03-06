@@ -4,7 +4,7 @@ class IpointNew extends Component {
     render() {
         return(
             <div>
-                {this.props.ipoint.name}
+                Ipoint New!
             </div>
         )
     }
