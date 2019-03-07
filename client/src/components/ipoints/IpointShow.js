@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {connect} from 'react-router-dom'
+import {connect} from 'react-redux'
 import {showIpoint} from '../../actions/ipointActions'
 
 class IpointShow extends Component {

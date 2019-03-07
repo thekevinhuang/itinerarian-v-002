@@ -10,7 +10,9 @@ import IpointShow from '../components/ipoints/IpointShow'
 class IpointsContainer extends Component {
 
     componentDidMount() {
-        this.props.fetchIpoints(this.props.itinDate.id)
+        if (this.props.itinDate){
+            this.props.fetchIpoints(this.props.itinDate.id)
+        }
     }
 
     render() {

@@ -42,3 +42,24 @@ export function fetchIpoints(itin_date_id) {
         })
     }
 }
+
+export function showIpoint(ipoint_id) {
+    return function(dispatch) {
+        return fetch(`/api/ipoints/${ipoint_id}`, {
+            method: 'GET',
+            headers: {
+                Accept: 'application/json', 
+                'Content-Type' : 'applicaiton/json'
+            },
+            credentials: 'same-origin'
+        })
+        .then(res=>res.json())
+        .then((ipoint)=> {
+            if(!ipoint.error) {
+                dispatch({type:"SHOW_IPOINT", ipoint: ipoint})
+            } else {
+                dispatch({type:"SHOW_IPOINT_FAILURE", error: ipoint.error})
+            }
+        })
+    }
+}
