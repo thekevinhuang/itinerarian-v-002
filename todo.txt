@@ -1,1 +1,2 @@
-1) start building out point addition to itindates - back end first
+1) finish up ipoint show
+2) Start working on deletions
