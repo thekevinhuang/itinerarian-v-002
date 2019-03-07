@@ -32,6 +32,10 @@ class ItinerariesController < ApplicationController
         render json: @itineraries
     end
 
+    def destroy
+        Itinerary.find_by(id: params[:id]).destroy
+    end
+
     private
 
     def itinerary_params

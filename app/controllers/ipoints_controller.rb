@@ -26,10 +26,16 @@ class IpointsController < ApplicationController
         render json: @ipoints
     end
 
+    def destroy
+        Ipoint.find_by(id: params[:id]).destroy
+    end
+
     private
 
     def ipoint_params
         params.require(:ipoint).permit(:name, :description, :location, :itin_date_id)
     end
+
+    
 
 end

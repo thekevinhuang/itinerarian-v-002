@@ -1,2 +1,9 @@
-1) finish up ipoint show
-2) Start working on deletions
+1) Start working on deletions
+2) Create delete
+
+1) Add rails route to destroy - COMPLETE
+2) Add controller action to destroy - COMPLETE
+3) Add reducer
+4) Add action
+5) Map the new delete to the props
+6) pass to children
