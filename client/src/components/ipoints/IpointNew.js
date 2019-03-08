@@ -23,7 +23,7 @@ class IpointNew extends Component {
         }
 
         this.props.addIpoint(ipoint)
-        this.setState=initialState
+        this.setState(initialState)
     }
 
     ipointChange = (event) => {

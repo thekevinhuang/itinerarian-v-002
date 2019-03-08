@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {addIpoint, fetchIpoints} from '../actions/ipointActions'
+import {addIpoint, fetchIpoints, deleteIpoint} from '../actions/ipointActions'
 import {Route} from 'react-router-dom'
 
 import IpointNew from '../components/ipoints/IpointNew'
@@ -22,7 +22,7 @@ class IpointsContainer extends Component {
                 <Route path='/dates/:itin_date_id' render={(routerProps)=> (
                     <div>
                         <IpointNew addIpoint={this.props.addIpoint} itinDate={this.props.itinDate}/>
-                        <Ipoints ipoints={this.props.ipoints.ipoints}/>
+                        <Ipoints ipoints={this.props.ipoints.ipoints} deleteIpoint={this.props.deleteIpoint}/>
                     </div>
                 )}/>
                 <Route path='/points/:ipoint_id' render={(routerProps)=> <IpointShow {...routerProps}/>}/>
@@ -40,7 +40,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         addIpoint : (ipoint) => dispatch(addIpoint(ipoint)),
-        fetchIpoints: (itin_date_id) => dispatch(fetchIpoints(itin_date_id))
+        fetchIpoints: (itin_date_id) => dispatch(fetchIpoints(itin_date_id)),
+        deleteIpoint: (ipoint_id) => dispatch(deleteIpoint(ipoint_id))
     }
 }
 

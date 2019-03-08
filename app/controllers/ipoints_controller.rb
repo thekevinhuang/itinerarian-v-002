@@ -27,7 +27,11 @@ class IpointsController < ApplicationController
     end
 
     def destroy
-        Ipoint.find_by(id: params[:id]).destroy
+        @ipoint =  Ipoint.find_by(id: params[:id])
+        @itin_date = @ipoint.itin_date
+        @ipoint.destroy
+        @ipoints = Ipoint.where(itin_date_id: @itin_date.id)
+        render json: @ipoints
     end
 
     private

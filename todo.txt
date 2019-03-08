@@ -7,3 +7,7 @@
 4) Add action
 5) Map the new delete to the props
 6) pass to children
+
+Current reducer action is assuming the return of all the items, might need to identify the parent prior to deletion to filter
+
+create a button for delete?

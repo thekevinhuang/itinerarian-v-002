@@ -63,3 +63,24 @@ export function showIpoint(ipoint_id) {
         })
     }
 }
+
+export function deleteIpoint(ipoint_id) {
+    return function(dispatch) {
+        return fetch(`/api/ipoints/${ipoint_id}`, {
+            method: 'DELETE',
+            headers:{
+                Accept: 'application/json',
+                'Content-Type' :'application/json'
+            },
+            credentials: 'same-origin'
+        })
+        .then(res=>res.json())
+        .then((ipoints)=>{
+            if(!ipoints.error) {
+                dispatch({type:"DELETE_IPOINT", ipoints: ipoints})
+            } else {
+                dispatch({type:"DELETE_IPOINT_FAILURE", error: ipoints.error})
+            }
+        })
+    }
+}
