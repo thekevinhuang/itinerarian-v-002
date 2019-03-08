@@ -6,6 +6,7 @@ import Navbar from './components/general/Navbar'
 import Home from './components/Home'
 import Signup from './components/users/Signup'
 import Login from './components/users/Login'
+import Logout from './components/users/Logout'
 import ItinerariesContainer from './containers/ItinerariesContainer'
 import ItinDatesContainer from './containers/ItinDatesContainer'
 import IpointsContainer from './containers/IpointsContainer'
@@ -44,7 +45,10 @@ class App extends Component {
             <Route exact path="/" component={Home}/>
             <Route exact path="/signup" component={Signup}/>
             <Route exact path="/login" component={Login}/>
+            <Route exact path="/logout" component={Logout}/>
+            <Route path="/:other" component={Navbar}/>
           </Switch>
+            
             <Route path="/itineraries" render={(routerProps) => <ItinerariesContainer {...routerProps}/>}/>
             <Route path="/dates" render={(routerProps)=> <ItinDatesContainer {...routerProps}/>}/>
             <Route path="/points" render={(routerProps)=> <IpointsContainer{...routerProps}/>}/>

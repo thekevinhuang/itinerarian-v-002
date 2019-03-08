@@ -32,6 +32,12 @@ class Navbar extends Component {
                       background: 'darkgrey'
                     }}
                 >Itineraries</NavLink>
+                <NavLink
+                    to="/logout"
+                    exact
+                    style={link}
+                    
+                >Logout</NavLink>
             </div>
         )
     }

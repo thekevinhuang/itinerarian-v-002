@@ -12,6 +12,9 @@ function itineraryReducer (state={}, action) {
         case 'SHOW_ITINERARY' :
             return {...state, itinerary: action.itinerary}
         
+        case 'DELETE_ITINERARY':
+            return {...state, itineraries:action.itineraries}
+        
         case 'ADD_ITINERARY_FAILURE' :
             return {...state, error: action.error}
 
@@ -19,6 +22,9 @@ function itineraryReducer (state={}, action) {
             return {...state, error:action.error}
         
         case 'SHOW_ITINERARY_FAILURE':
+            return {...state, error:action.error}
+        
+        case 'DELETE_ITINERARY_FAILURE' :
             return {...state, error:action.error}
 
         default:

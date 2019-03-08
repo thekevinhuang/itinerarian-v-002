@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Route} from 'react-router-dom'
-import {fetchItineraries, addItinerary, showItinerary} from '../actions/itineraryActions'
+import {fetchItineraries, addItinerary, showItinerary, deleteItinerary} from '../actions/itineraryActions'
 import {addItinDate} from '../actions/itinDateActions'
 import ItineraryNew from '../components/itineraries/ItineraryNew'
 import ItineraryShow from '../components/itineraries/ItineraryShow'
@@ -44,7 +44,7 @@ class ItinerariesContainer extends Component {
                 <Route exact path={`${this.props.match.url}`} render={(props)=> (
                     <div>
                         <ItineraryNew addItinerary={this.props.addItinerary} currentUser={this.state.currentUser}/>
-                        <Itineraries itineraries={this.props.itineraries.itineraries}/>
+                        <Itineraries itineraries={this.props.itineraries.itineraries} deleteItinerary={this.props.deleteItinerary}/>
                     </div>
                 )}/>
                 <Route path={`${this.props.match.url}/:itinerary_id`} render={(props)=> <div><ItineraryShow showItinerary={this.props.showItinerary} {...props}/></div>}/>
@@ -65,7 +65,8 @@ const mapDispatchToProps = dispatch => {
         fetchItineraries : (user_id) => dispatch(fetchItineraries(user_id)),
         addItinerary : (itinerary) => dispatch(addItinerary(itinerary)),
         showItinerary : (itinerary_id) => dispatch(showItinerary(itinerary_id)),
-        addItinDate : (itin_date) => dispatch(addItinDate(itin_date))
+        addItinDate : (itin_date) => dispatch(addItinDate(itin_date)),
+        deleteItinerary : (itinerary_id) => dispatch(deleteItinerary(itinerary_id))
     }
 }
 

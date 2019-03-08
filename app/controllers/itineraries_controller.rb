@@ -33,7 +33,11 @@ class ItinerariesController < ApplicationController
     end
 
     def destroy
-        Itinerary.find_by(id: params[:id]).destroy
+        @itinerary = Itinerary.find_by(id: params[:id])
+        @user = @itinerary.user
+        @itinerary.destroy
+        @itineraries = Itinerary.where(user_id: @user.id)
+        render json: @itineraries
     end
 
     private

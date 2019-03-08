@@ -63,3 +63,24 @@ export function showItinerary(itinerary_id) {
         })
     }
 }
+
+export function deleteItinerary(itinerary_id) {
+    return function(dispatch) {
+        return fetch(`api/itineraries/${itinerary_id}`, {
+            method: 'DELETE',
+            header: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            credentials: 'same-origin'
+        })
+        .then(res=> res.json())
+        .then((itineraries)=> {
+            if (!itineraries.error) {
+                dispatch({type:"DELETE_ITINERARY", itineraries: itineraries})
+            } else {
+                dispatch({type:"DELETE_ITINERARY_SHOW",error: itineraries.error})
+            }
+        })
+    }
+}

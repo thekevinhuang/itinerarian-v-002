@@ -6,7 +6,7 @@ class Itineraries extends Component {
     renderItineraries =() => {
         
         if(this.props.itineraries){
-            return this.props.itineraries.map((element, index) => <Itinerary itinerary={element}/>)
+            return this.props.itineraries.map((element, index) => <Itinerary itinerary={element} deleteItinerary={this.props.deleteItinerary}/>)
         } else {
             return <p>Add some Itineraries!</p>
         }
