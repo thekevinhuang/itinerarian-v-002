@@ -1,4 +1,15 @@
 import React, {Component} from 'react'
+import Button from '@material-ui/core/Button'
+import TextField from '@material-ui/core/TextField'
+import {withStyles} from '@material-ui/core/styles'
+import Grid from '@material-ui/core/Grid'
+
+const styles = theme => ({
+    button: {
+        margin: theme.spacing.unit,
+    }
+})
+
 
 const initialState={
     name: "",
@@ -26,30 +37,46 @@ class IpointNew extends Component {
         this.setState(initialState)
     }
 
-    ipointChange = (event) => {
+    ipointChange = name => event => {
         this.setState({
-            [event.target.name] : event.target.value
+            [name] : event.target.value
         })
     }
 
     render() {
         return(
             <div>
-                <form onSubmit={this.newIpointSubmit}>
-                    <label>Name</label><br/>
-                    <input type="text" name="name" value={this.state.name} onChange={this.ipointChange}/><br/><br/>
+                <Grid container justify="center">
+                    <form onSubmit={this.newIpointSubmit}>
+                        <TextField
+                            label="Point of Interest"
 
-                    <label>Description</label><br/>
-                    <input type="text" name="description" value={this.state.description} onChange={this.ipointChange}/><br/><br/>
+                            value={this.state.name}
+                            onChange={this.ipointChange('name')}
+                            margin="normal"
+                        />
+                        <br/>
+                        <TextField
+                            label="Description"
 
-                    <label>Location</label><br/>
-                    <input type="text" name="location" value={this.state.location} onChange={this.ipointChange}/><br/><br/>
+                            value={this.state.description}
+                            onChange={this.ipointChange('description')}
+                            margin="normal"
+                        />
 
-                    <input type="submit" value="Create new Point of Interest"/>
-                </form>
+                        <br/>
+                        <br/>
+
+                        <Button variant="contained" type="submit">
+                            Create a Point of Interest
+                        </Button>
+                    </form>
+
+                </Grid>
+                
             </div>
         )
     }
 }
 
-export default IpointNew
+export default withStyles(styles)(IpointNew)

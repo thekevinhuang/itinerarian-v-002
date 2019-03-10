@@ -2,6 +2,11 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {loginUser} from '../../actions/userActions'
 import {Redirect} from 'react-router-dom'
+import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
+//import {withStyles} from '@material-ui/core/styles'
+import Button from '@material-ui/core/Button'
+import TextField from '@material-ui/core/TextField'
 
 const initialState={
     username: '',
@@ -34,13 +39,14 @@ class Login extends Component {
             username: this.state.username,
             password: this.state.password
         }
+        
         this.props.loginUser(user)
         this.setState(initialState)
     }
 
-    loginChange = event => {
+    loginChange = name => event => {
         this.setState({
-            [event.target.name] : event.target.value
+            [name] : event.target.value
         })
     }
 
@@ -59,22 +65,29 @@ class Login extends Component {
 
     render() {
         if(this.state.currentUser||this.props.currentUser){
-            return <div><Redirect to="/itineraries"/></div>
+            return (
+            <Grid container justify="center" alignItems="center" direction="column" spacing={32} style={{ minHeight: '100vh' }}>
+                <Redirect to="/itineraries"/>
+            </Grid>
+            )
         } else {
             return (
-                <div>
-                    {this.loginErrorDisplay()}
-                    <h1>Login to your Itinerarian</h1>
+                <Grid container justify="center" alignItems="center" direction="column" spacing={8} style={{ minHeight: '100vh' }}>
+                    
+                    <Typography component="h2" variant="h4">Login to your Itinerarian</Typography>
+                    
+                    <Grid item xs={12}>{this.loginErrorDisplay()}</Grid>
+                    
                     <form onSubmit={this.loginSubmitHandle}>
-                        <label>Username</label><br/>
-                        <input type="text" name="username" onChange={this.loginChange} value={this.state.username}/><br/>
+                        <TextField label="Username" onChange={this.loginChange("username")} value={this.state.username}  margin="normal"/><br/>
 
-                        <label>Password</label><br/>
-                        <input type="password" name="password" onChange={this.loginChange} value={this.state.password}/><br/>
+                        <TextField label="Password" type="password" onChange={this.loginChange("password")} value={this.state.password} margin="normal"/><br/>
 
-                        <input type="submit" value="Login!"/>
+                        <Button variant="contained" type="submit">
+                            Login!
+                        </Button>
                     </form>
-                </div>
+                </Grid>
             )
             
         }

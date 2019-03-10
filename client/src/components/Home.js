@@ -1,5 +1,15 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
+import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
+import {withStyles} from '@material-ui/core/styles'
+
+const styles = theme => ({
+    root: {
+        width:'50%',
+        maxWidth: 500,
+    }
+})
 
 class Home extends Component {
 
@@ -20,18 +30,27 @@ class Home extends Component {
             )
         } else {
             return(
-                <h3>Please <Link to={`/login`}>Login</Link> or <Link to={`/signup`}>Signup</Link>!</h3>
+                <Grid container justify="center" alignItems="center" direction="column" spacing={32} style={{ minHeight: '100vh' }}>
+                    <Grid item xs={12} >
+                        <Typography component="h2" variant="h2">Welcome to Itinerarian!</Typography>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Typography variant="h6">Please <Link to={`/login`}>Login</Link> or <Link to={`/signup`}>Signup</Link>!</Typography>
+                    </Grid>
+                </Grid>
             )
         }
     }
 
     render() {
         return (
-            <div>
+            
+            <React.Fragment>
                 {this.renderPage()}
-            </div>
+            </React.Fragment>
+            
         )
     }
 }
 
-export default Home
+export default withStyles(styles)(Home)

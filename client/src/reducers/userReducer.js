@@ -21,7 +21,7 @@ function userReducer (state={}, action) {
             return {
                 ...state,
                 redirect: false,
-                error: action.error
+                errors: action.errors
             }
         default:
             return state

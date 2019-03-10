@@ -1,44 +1,29 @@
 import React, {Component} from 'react'
-import {NavLink} from 'react-router-dom'
-
-const link={
-    width: '100px',
-    padding: '12px',
-    margin: '0 2px 2px',
-    background: 'lightgrey',
-    textDecoration: 'none',
-    color: 'darkblue'
-  }
-
+import {Link} from 'react-router-dom'
+import Button from '@material-ui/core/Button'
+import Grid from '@material-ui/core/Grid'
 
 class Navbar extends Component {
 
     render() {
         return (
-            <div>
-                <NavLink
+            <Grid container justify="center">
+                <Button
+                    component={Link}
                     to="/"
-                    exact
-                    style={link}
-                    activeStyle={{
-                      background: 'darkgrey'
-                    }}
-                >Home</NavLink>
-                <NavLink
-                    to="/itineraries"
-                    exact
-                    style={link}
-                    activeStyle={{
-                      background: 'darkgrey'
-                    }}
-                >Itineraries</NavLink>
-                <NavLink
-                    to="/logout"
-                    exact
-                    style={link}
                     
-                >Logout</NavLink>
-            </div>
+                >Home</Button>
+                <Button
+                    component={Link}
+                    to="/itineraries"
+                    
+                >Itineraries</Button>
+                <Button
+                    component={Link}
+                    to="/logout"
+                    
+                >Logout</Button>
+            </Grid>
         )
     }
 }

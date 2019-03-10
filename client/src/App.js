@@ -40,21 +40,19 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <React.Fragment>
-          <Switch>
-            <Route exact path="/" component={Home}/>
-            <Route exact path="/signup" component={Signup}/>
-            <Route exact path="/login" component={Login}/>
-            <Route exact path="/logout" component={Logout}/>
-            <Route path="/:other" component={Navbar}/>
-          </Switch>
-            
-            <Route path="/itineraries" render={(routerProps) => <ItinerariesContainer {...routerProps}/>}/>
-            <Route path="/dates" render={(routerProps)=> <ItinDatesContainer {...routerProps}/>}/>
-            <Route path="/points" render={(routerProps)=> <IpointsContainer{...routerProps}/>}/>
-            
-        </React.Fragment>
-      </Router>
+         <React.Fragment>
+           <Switch>
+             <Route exact path="/" component={Home}/>
+             <Route exact path="/signup" component={Signup}/>
+             <Route exact path="/login" component={Login}/>
+             <Route exact path="/logout" component={Logout}/>
+             <Route path="/:other" component={Navbar}/>
+           </Switch>
+             <Route path="/itineraries" render={(routerProps) => <ItinerariesContainer {...routerProps}/>}/>
+             <Route path="/dates" render={(routerProps)=> <ItinDatesContainer {...routerProps}/>}/>
+             <Route path="/points" render={(routerProps)=> <IpointsContainer{...routerProps}/>}/>
+         </React.Fragment>
+       </Router>
     );
   }
 }

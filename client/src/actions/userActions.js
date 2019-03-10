@@ -11,10 +11,10 @@ export function signupUser(user) {
         })
         .then(res=>res.json())
         .then((responseJson)=> {
-            if(!responseJson.error) {
+            if(!responseJson.errors) {
                 dispatch({type: 'SIGNUP_SUCCESS', redirect: true})
             } else {
-                dispatch({type: 'SIGNUP_FAILURE', error: responseJson.error})
+                dispatch({type: 'SIGNUP_FAILURE', errors: responseJson.errors})
             }
         })
     }
