@@ -33,7 +33,8 @@ export function loginUser(user) {
         })
         .then(res=>res.json())
         .then((responseJson)=> {
-            if(!responseJson.error){
+            
+            if(!responseJson.errors){
                 dispatch({type: 'LOGIN_SUCCESS', user: responseJson})
                 if (typeof localStorage === 'object') {
                     try {
@@ -43,7 +44,7 @@ export function loginUser(user) {
                     }
                 }
             } else {
-                dispatch({type: 'LOGIN_FAILURE', error: responseJson.error})
+                dispatch({type: 'LOGIN_FAILURE', errors: responseJson.errors})
             }
         })
     }

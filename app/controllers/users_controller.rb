@@ -27,10 +27,18 @@ class UsersController < ApplicationController
     end
 
     def login
+        
         @user = User.find_by(username: params[:user][:username])
 
-        if @user && @user.authenticate(params[:user][:password])
-            render json: @user
+        if @user
+
+            if @user.authenticate(params[:user][:password])
+                render json: @user
+            else
+                render :json => {:errors => @user.errors.full_messages}, :status => 422
+            end
+        else
+            render :json => {:errors => "There was an issue with your login"}, :status => 422
         end
     end
 

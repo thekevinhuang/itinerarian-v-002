@@ -35,6 +35,7 @@ class Login extends Component {
             password: this.state.password
         }
         this.props.loginUser(user)
+        this.setState(initialState)
     }
 
     loginChange = event => {
@@ -43,12 +44,26 @@ class Login extends Component {
         })
     }
 
+    loginErrorDisplay = () => {
+        if(this.props.loginError) {
+            return(
+                <div>
+                    {this.props.loginError}
+                </div>
+            )
+        } else {
+            return <div></div>
+        }
+        
+    }
+
     render() {
         if(this.state.currentUser||this.props.currentUser){
             return <div><Redirect to="/itineraries"/></div>
         } else {
             return (
                 <div>
+                    {this.loginErrorDisplay()}
                     <h1>Login to your Itinerarian</h1>
                     <form onSubmit={this.loginSubmitHandle}>
                         <label>Username</label><br/>
@@ -68,7 +83,8 @@ class Login extends Component {
 
 const mapStateToProps = state => {
     return {
-        currentUser: state.user.currentUser
+        currentUser: state.user.currentUser,
+        loginError: state.user.errors
     }
 }
 

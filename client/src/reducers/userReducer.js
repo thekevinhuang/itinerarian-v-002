@@ -15,7 +15,7 @@ function userReducer (state={}, action) {
             return {
                 ...state,
                 curentUser: '',
-                error: action.error
+                errors: action.errors
             }
         case 'SIGNUP_FAILURE':
             return {
