@@ -22,7 +22,7 @@ class IpointsContainer extends Component {
         return (
             <div>
                 <Route path='/dates/:itin_date_id' render={(routerProps)=> (
-                    <Grid container direction="row" alignItems="center" justify="space-around">
+                    <Grid container direction="row" alignItems="center" justify="space-around" spacing={32}>
                         <Grid item>
                             <IpointNew addIpoint={this.props.addIpoint} itinDate={this.props.itinDate}/>
                         </Grid>

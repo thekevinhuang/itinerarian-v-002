@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 import {withStyles} from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
+import AutoComplete from './autoComplete'
 
 const styles = theme => ({
     button: {
@@ -14,7 +15,8 @@ const styles = theme => ({
 const initialState={
     name: "",
     description: "",
-    location: ""
+    location: "",
+    place: {}
 }
 
 class IpointNew extends Component {
@@ -43,18 +45,26 @@ class IpointNew extends Component {
         })
     }
 
+    onPlaceChange(place) {
+        this.setState({place: place})
+    }
+
+
     render() {
         return(
-            <div>
+            <div>  
                 <Grid container justify="center">
+                    
                     <form onSubmit={this.newIpointSubmit}>
+                        <AutoComplete onPlaceChange={this.onPlaceChange.bind(this)}/>
+                        
                         <TextField
-                            label="Point of Interest"
-
-                            value={this.state.name}
-                            onChange={this.ipointChange('name')}
+                            disabled
+                            fullWidth 
+                            value={this.state.place.formatted_address}
                             margin="normal"
                         />
+                        
                         <br/>
                         <TextField
                             label="Description"

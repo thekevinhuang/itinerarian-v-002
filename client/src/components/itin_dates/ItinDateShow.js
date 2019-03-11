@@ -23,9 +23,14 @@ class ItinDateShow extends Component {
         if(this.props.itinDate){
             let itindate = this.props.itinDate
             return(
-                <Grid container direction="column" justify="center" alignItems="center">
-                    <Typography variant="h5">{this.dateFormat(itindate.date)}</Typography>
-                    <IpointsContainer itinDate={itindate}/>
+                <Grid container direction="column" justify="center" alignItems="center"spacing={32}>
+                    <Grid item>
+                        <Typography variant="h5">{this.dateFormat(itindate.date)}</Typography>
+                    </Grid>
+                    <Grid item>
+                        <IpointsContainer itinDate={itindate}/>
+                    </Grid>
+                    
                 </Grid>
             )
         }else {

@@ -21,7 +21,7 @@ class ItineraryShow extends Component {
                         <Typography variant="h5">{this.props.currItinerary.name}</Typography>
                     </Grid>
                     <Grid item>
-                        <Typography variant="caption text">{this.props.currItinerary.description}</Typography>
+                        <Typography variant="caption">{this.props.currItinerary.description}</Typography>
                     </Grid>
 
                     <Grid item>
