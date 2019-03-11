@@ -7,6 +7,10 @@ import ItineraryNew from '../components/itineraries/ItineraryNew'
 import ItineraryShow from '../components/itineraries/ItineraryShow'
 import Itineraries from '../components/itineraries/Itineraries'
 
+import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
+
+
 
 const initialState={
     currentUser: '',
@@ -39,16 +43,24 @@ class ItinerariesContainer extends Component {
 
     render () {
         return (
-            <div>
-                <h1>Itineraries</h1>
-                <Route exact path={`${this.props.match.url}`} render={(props)=> (
-                    <div>
-                        <ItineraryNew addItinerary={this.props.addItinerary} currentUser={this.state.currentUser}/>
-                        <Itineraries itineraries={this.props.itineraries.itineraries} deleteItinerary={this.props.deleteItinerary}/>
-                    </div>
-                )}/>
-                <Route path={`${this.props.match.url}/:itinerary_id`} render={(props)=> <div><ItineraryShow showItinerary={this.props.showItinerary} {...props}/></div>}/>
-            </div>
+            <Grid container justify="flex-start" alignItems="center" direction="column" spacing={24} style={{ minHeight: '100vh' }}>
+                <Grid item>
+                    <Typography component="h2" variant="h3">Itineraries</Typography>
+                </Grid>
+                <Grid item>
+                    <Route exact path={`${this.props.match.url}`} render={(props)=> (
+                        <Grid container direction="row" justify="space-between" alignItems="center" spacing={16}>
+                            <Grid item>
+                                <ItineraryNew addItinerary={this.props.addItinerary} currentUser={this.state.currentUser}/>
+                            </Grid>
+                            <Grid item>
+                                <Itineraries itineraries={this.props.itineraries.itineraries} deleteItinerary={this.props.deleteItinerary}/>
+                            </Grid>
+                        </Grid>
+                    )}/>
+                    <Route path={`${this.props.match.url}/:itinerary_id`} render={(props)=> <div><ItineraryShow showItinerary={this.props.showItinerary} {...props}/></div>}/>
+                </Grid>
+            </Grid>
         )
     }
 }

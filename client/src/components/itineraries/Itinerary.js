@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
-
-
+import Button from '@material-ui/core/Button'
 
 export default class Itinerary extends Component {
 
@@ -12,8 +11,8 @@ export default class Itinerary extends Component {
     render () {
         return (
             <React.Fragment>
-                <Link key={this.props.itinerary.id} to={`/itineraries/${this.props.itinerary.id}`}>{this.props.itinerary.name}</Link><br/>
-                <button onClick={this.deleteItinerary}>Delete!</button>
+                <Button component={Link} to={`/itineraries/${this.props.itinerary.id}`}>{this.props.itinerary.name}</Button>
+                <Button onClick={this.deleteItinerary} style={{color:'red'}}>X</Button>
                 <br/>
             </React.Fragment>
         )

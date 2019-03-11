@@ -7,22 +7,27 @@ class Navbar extends Component {
 
     render() {
         return (
-            <Grid container justify="center">
-                <Button
-                    component={Link}
-                    to="/"
-                    
-                >Home</Button>
-                <Button
-                    component={Link}
-                    to="/itineraries"
-                    
-                >Itineraries</Button>
-                <Button
-                    component={Link}
-                    to="/logout"
-                    
-                >Logout</Button>
+            <Grid container direction="row" justify="center" align-items="center" spacing={16}>
+                <Grid item>
+                    <Button
+                        component={Link}
+                        to="/"
+                    >Home</Button>
+                </Grid>
+                <Grid item>
+                    <Button
+                        component={Link}
+                        to="/itineraries"
+
+                    >Itineraries</Button>
+                </Grid>
+                <Grid item>
+                    <Button
+                        component={Link}
+                        to="/logout"
+
+                    >Logout</Button>
+                </Grid>
             </Grid>
         )
     }

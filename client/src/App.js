@@ -11,6 +11,8 @@ import ItinerariesContainer from './containers/ItinerariesContainer'
 import ItinDatesContainer from './containers/ItinDatesContainer'
 import IpointsContainer from './containers/IpointsContainer'
 
+import Grid from '@material-ui/core/Grid'
+
 import './App.css';
 
 
@@ -40,19 +42,23 @@ class App extends Component {
   render() {
     return (
       <Router>
-         <React.Fragment>
-           <Switch>
-             <Route exact path="/" component={Home}/>
-             <Route exact path="/signup" component={Signup}/>
-             <Route exact path="/login" component={Login}/>
-             <Route exact path="/logout" component={Logout}/>
-             <Route path="/:other" component={Navbar}/>
-           </Switch>
-             <Route path="/itineraries" render={(routerProps) => <ItinerariesContainer {...routerProps}/>}/>
-             <Route path="/dates" render={(routerProps)=> <ItinDatesContainer {...routerProps}/>}/>
-             <Route path="/points" render={(routerProps)=> <IpointsContainer{...routerProps}/>}/>
-         </React.Fragment>
-       </Router>
+        <Grid container direction="column" justify="center" align-items="center" spacing={40}>
+          <Grid item>
+          <Switch>
+              <Route exact path="/" component={Home}/>
+              <Route exact path="/signup" component={Signup}/>
+              <Route exact path="/login" component={Login}/>
+              <Route exact path="/logout" component={Logout}/>
+              <Route path="/:other" component={Navbar}/>
+            </Switch>
+          </Grid>
+          <Grid item>
+            <Route path="/itineraries" render={(routerProps) => <ItinerariesContainer {...routerProps}/>}/>
+            <Route path="/dates" render={(routerProps)=> <ItinDatesContainer {...routerProps}/>}/>
+            <Route path="/points" render={(routerProps)=> <IpointsContainer{...routerProps}/>}/>
+          </Grid>
+        </Grid>
+      </Router>
     );
   }
 }

@@ -1,4 +1,7 @@
 import React, {Component} from 'react'
+
+import Typography from '@material-ui/core/Typography'
+//import {withStyles} from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 
@@ -50,28 +53,51 @@ class ItineraryNew extends Component {
         })
     }
 
-    itineraryNewChange = event => {
+    itineraryNewChange = name=>event => {
         this.setState({
-            [event.target.name] : event.target.value
+            [name] : event.target.value
         })
     }
 
     render() {
             return (
                 <form onSubmit={this.itineraryNewSubmit}>
-                    <label>Name</label><br/>
-                    <input type="text" name="name" value={this.state.name} onChange={this.itineraryNewChange}/><br/>
+                    <Typography component="h6" variant="h6">Create a new Itinerary</Typography>
+                    <TextField 
+                        label="Name" 
+                        value={this.state.name} 
+                        onChange={this.itineraryNewChange("name")} 
+                        margin="normal"
+                        /><br/>
+                    
+                    <TextField 
+                        label="Start Date" 
+                        value={this.state.start_date} 
+                        onChange={this.itineraryNewChange("start_date")} 
+                        type="date" 
+                        margin="normal"
+                        InputLabelProps={{shrink:true}}
+                    /><br/>
+                    
+                    <TextField 
+                        label="End Date" 
+                        value={this.state.end_date} 
+                        onChange={this.itineraryNewChange("end_date")} 
+                        type="date" 
+                        margin="normal"
+                        InputLabelProps={{shrink:true}}
+                    /><br/>
 
-                    <label>Description</label><br/>
-                    <input type="text" name="description" value={this.state.description} onChange={this.itineraryNewChange}/><br/>
+                    <TextField 
+                        label="Description" 
+                        value={this.state.description} 
+                        onChange={this.itineraryNewChange("description")} 
+                        margin="normal"
+                    /><br/><br/>
 
-                    <label>Start Date</label><br/>
-                    <input type="date" name="start_date" value={this.state.start_date} onChange={this.itineraryNewChange}/><br/>
-
-                    <label>End Date</label><br/>
-                    <input type="date" name="end_date" value={this.state.end_date} onChange={this.itineraryNewChange}/><br/><br/>
-
-                    <input type="submit" value="Create new Itinerary"/>
+                    <Button type="submit" variant="contained">
+                        Create new Itinerary!
+                    </Button>
                 </form>
             )
         
