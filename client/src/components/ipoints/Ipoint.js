@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
+import Button from '@material-ui/core/Button'
 
 class Ipoint extends Component {
 
@@ -11,8 +12,8 @@ class Ipoint extends Component {
         
         return(
             <React.Fragment>
-                <Link key={this.props.ipoint.id} to={`/points/${this.props.ipoint.id}`}>{this.props.ipoint.name}</Link><br/> 
-                <button onClick={this.deleteIpoint}>Delete!</button>
+                <Button component={Link} to={`/points/${this.props.ipoint.id}`}>{this.props.ipoint.name}</Button>
+                <Button onClick={this.deleteIpoint} style={{color:'red'}}>X</Button>
                 <br/>
             </React.Fragment>
         )

@@ -2,6 +2,10 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import ItinDatesContainer from '../../containers/ItinDatesContainer'
 
+import Typography from '@material-ui/core/Typography'
+import Grid from '@material-ui/core/Grid'
+
+
 class ItineraryShow extends Component {
     
     componentDidMount() {
@@ -12,11 +16,19 @@ class ItineraryShow extends Component {
         
         if(this.props.currItinerary){
             return (
-                <div>
-                    <h1>{this.props.currItinerary.name}</h1>
-                    <h3>{this.props.currItinerary.description}</h3>
-                    <ItinDatesContainer itinerary={this.props.currItinerary}/>
-                </div>
+                <Grid container direction="column" justify="center"spacing={16}>
+                    <Grid item>
+                        <Typography variant="h5">{this.props.currItinerary.name}</Typography>
+                    </Grid>
+                    <Grid item>
+                        <Typography variant="caption text">{this.props.currItinerary.description}</Typography>
+                    </Grid>
+
+                    <Grid item>
+                        <ItinDatesContainer itinerary={this.props.currItinerary}/>
+                    </Grid>
+                    
+                </Grid>
             )
 
         } else {

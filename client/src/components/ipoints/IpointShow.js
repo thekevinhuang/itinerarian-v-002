@@ -2,6 +2,9 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {showIpoint} from '../../actions/ipointActions'
 
+import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
+
 class IpointShow extends Component {
 
     componentDidMount() {
@@ -11,9 +14,9 @@ class IpointShow extends Component {
     renderIpointsShow= () => {
         if (this.props.ipoint) {
             return (
-                <div>
-                    <h1>{this.props.ipoint.name}</h1>
-                </div>
+                <Grid container justify="center" direcion="column" alignItems="center">
+                    <Typography variant="h4">{this.props.ipoint.name}</Typography>
+                </Grid >
             )
         } else {
             return <div> IpointShow loading </div>

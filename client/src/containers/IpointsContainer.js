@@ -7,6 +7,8 @@ import IpointNew from '../components/ipoints/IpointNew'
 import Ipoints from '../components/ipoints/Ipoints'
 import IpointShow from '../components/ipoints/IpointShow'
 
+import Grid from '@material-ui/core/Grid'
+
 class IpointsContainer extends Component {
 
     componentDidMount() {
@@ -20,10 +22,14 @@ class IpointsContainer extends Component {
         return (
             <div>
                 <Route path='/dates/:itin_date_id' render={(routerProps)=> (
-                    <div>
-                        <IpointNew addIpoint={this.props.addIpoint} itinDate={this.props.itinDate}/>
-                        <Ipoints ipoints={this.props.ipoints.ipoints} deleteIpoint={this.props.deleteIpoint}/>
-                    </div>
+                    <Grid container direction="row" alignItems="center" justify="space-around">
+                        <Grid item>
+                            <IpointNew addIpoint={this.props.addIpoint} itinDate={this.props.itinDate}/>
+                        </Grid>
+                        <Grid item>
+                            <Ipoints ipoints={this.props.ipoints.ipoints} deleteIpoint={this.props.deleteIpoint}/>
+                        </Grid>                        
+                    </Grid>
                 )}/>
                 <Route path='/points/:ipoint_id' render={(routerProps)=> <IpointShow {...routerProps}/>}/>
             </div>
