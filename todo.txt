@@ -13,3 +13,5 @@ Current reducer action is assuming the return of all the items, might need to id
 create a button for delete?
 
 after arriving on itineraries after loggin in, nothing loads
+
+FINISH THE GMAPS BUTTON NAME LOAD

@@ -35,7 +35,7 @@ class Home extends Component {
                         <Typography component="h2" variant="h2">Welcome to Itinerarian!</Typography>
                     </Grid>
                     <Grid item xs={12}>
-                        <Typography variant="h7">Please <Link to={`/login`}>Login</Link> or <Link to={`/signup`}>Signup</Link>!</Typography>
+                        <Typography variant="body1">Please <Link to={`/login`}>Login</Link> or <Link to={`/signup`}>Signup</Link>!</Typography>
                     </Grid>
                 </Grid>
             )

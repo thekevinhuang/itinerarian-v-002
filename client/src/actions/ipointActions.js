@@ -1,3 +1,4 @@
+
 export function addIpoint (ipoint) {
     return function(dispatch) {
         return fetch (`/api/itin_dates/${ipoint.itin_date_id}/ipoints`, {

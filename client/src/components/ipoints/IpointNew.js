@@ -28,13 +28,14 @@ class IpointNew extends Component {
 
     newIpointSubmit = (event) =>{
         event.preventDefault()
+        
         const ipoint = {
             name: this.state.name,
             description: this.state.description,
             location: this.state.location,
-            itin_date_id: this.props.itinDate.id
+            itin_date_id: this.props.itinDate.id,
+            gmaps_id: this.state.place.place_id
         }
-
         this.props.addIpoint(ipoint)
         this.setState(initialState)
     }
@@ -49,7 +50,6 @@ class IpointNew extends Component {
         this.setState({place: place})
     }
 
-
     render() {
         return(
             <div>  
@@ -57,15 +57,8 @@ class IpointNew extends Component {
                     
                     <form onSubmit={this.newIpointSubmit}>
                         <AutoComplete onPlaceChange={this.onPlaceChange.bind(this)}/>
-                        
-                        <TextField
-                            disabled
-                            fullWidth 
-                            value={this.state.place.formatted_address}
-                            margin="normal"
-                        />
-                        
                         <br/>
+                        
                         <TextField
                             label="Description"
 

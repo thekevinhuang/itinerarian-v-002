@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_05_134413) do
+ActiveRecord::Schema.define(version: 2019_03_11_235431) do
 
   create_table "ipoints", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.string "location"
     t.integer "itin_date_id"
+    t.string "gmaps_id"
   end
 
   create_table "itin_dates", force: :cascade do |t|

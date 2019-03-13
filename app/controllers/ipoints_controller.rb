@@ -37,7 +37,7 @@ class IpointsController < ApplicationController
     private
 
     def ipoint_params
-        params.require(:ipoint).permit(:name, :description, :location, :itin_date_id)
+        params.require(:ipoint).permit(:name, :description, :location, :itin_date_id, :gmaps_id)
     end
 
     
