@@ -1,6 +1,7 @@
 import React from 'react'
 import TextField from '@material-ui/core/TextField'
 
+
 const google = window.google
 
 class AutoComplete extends React.Component {
@@ -10,6 +11,7 @@ class AutoComplete extends React.Component {
         this.autoComplete = null
         this.handlePlaceChange = this.handlePlaceChange.bind(this)
     }
+
 
     componentDidMount() {
         this.autoComplete = new google.maps.places.Autocomplete(

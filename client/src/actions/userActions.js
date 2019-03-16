@@ -38,6 +38,7 @@ export function loginUser(user) {
                 dispatch({type: 'LOGIN_SUCCESS', user: responseJson})
                 if (typeof localStorage === 'object') {
                     try {
+                        //alert("you logged in!")
                         localStorage.setItem('current_user', JSON.stringify(responseJson))
                     } catch (e) {
                         alert("There was an issue!")
