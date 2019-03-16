@@ -25,18 +25,14 @@ class ItinerariesContainer extends Component {
     }
 
     componentDidMount() {
-        if(typeof localStorage=='object') {
-            try {
-                const current_user_string = localStorage.getItem('current_user')
-                var currentUser = JSON.parse(current_user_string)
-                this.setState({
-                    currentUser: currentUser,
-                    loggedin: true
-                })
-                this.props.fetchItineraries(currentUser.id)            
-            } catch (e) {
-                //alert(`ItinerariesContainer component error ${e}`)
-            }
+        let currentUser = this.props.currentUser
+        if (currentUser) {
+            
+            this.setState( {
+                loggedin: true,
+                currentUser: currentUser
+            })
+            this.props.fetchItineraries(currentUser.id)
         }
     }
 
@@ -50,7 +46,7 @@ class ItinerariesContainer extends Component {
                     <Route exact path={`${this.props.match.url}`} render={(props)=> (
                         <Grid container direction="row" justify="space-between" alignItems="center" spacing={16}>
                             <Grid item>
-                                <ItineraryNew addItinerary={this.props.addItinerary} currentUser={this.state.currentUser}/>
+                                <ItineraryNew addItinerary={this.props.addItinerary} currentUser={this.props.currentUser}/>
                             </Grid>
                             <Grid item>
                                 <Itineraries itineraries={this.props.itineraries.itineraries} deleteItinerary={this.props.deleteItinerary}/>
@@ -67,7 +63,8 @@ class ItinerariesContainer extends Component {
 const mapStateToProps = state => {
     
     return {
-        itineraries: state.itineraries
+        itineraries: state.itineraries,
+        currentUser: state.user.currentUser
     }
 }
 

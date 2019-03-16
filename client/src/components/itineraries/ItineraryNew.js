@@ -1,10 +1,9 @@
 import React, {Component} from 'react'
 
 import Typography from '@material-ui/core/Typography'
-//import {withStyles} from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
-import {connect} from 'react-redux'
+
 
 const initialState = {
     name: "",
@@ -17,22 +16,6 @@ class ItineraryNew extends Component {
     constructor (props) {
         super(props)
         this.state={...initialState, currentUser: this.props.currentUser}
-    }
-
-    componentDidMount() {
-        if(typeof localStorage==='object') {
-            
-            try {
-                const current_user_string = localStorage.getItem('current_user')
-                var currentUser = JSON.parse(current_user_string)
-                
-                this.setState({
-                    currentUser: currentUser
-                })
-            } catch (e) {
-                alert('Itinerary New component error')
-            }
-        }
     }
 
     itineraryNewSubmit = event => {
@@ -110,10 +93,4 @@ class ItineraryNew extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        currentUser : state.user.currentUser
-    }
-}
-
-export default connect(mapStateToProps)(ItineraryNew)
+export default ItineraryNew
