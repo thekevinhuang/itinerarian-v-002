@@ -10,6 +10,7 @@ import Logout from './components/users/Logout'
 import ItinerariesContainer from './containers/ItinerariesContainer'
 import ItinDatesContainer from './containers/ItinDatesContainer'
 import IpointsContainer from './containers/IpointsContainer'
+import {userLogout} from './actions/userActions'
 
 import Grid from '@material-ui/core/Grid'
 
@@ -48,7 +49,7 @@ class App extends Component {
               <Route exact path="/" component={Home}/>
               <Route exact path="/signup" component={Signup}/>
               <Route exact path="/login" component={Login}/>
-              <Route exact path="/logout" component={Logout}/>
+              <Route exact path="/logout" render={()=><Logout userLogout={this.props.userLogout}/>}/>
               <Route path="/:other" component={Navbar}/>
             </Switch>
           </Grid>
@@ -63,4 +64,11 @@ class App extends Component {
   }
 }
 
-export default connect()(App);
+const mapDispatchToProps = dispatch => {
+  return {
+    userLogout: () => dispatch(userLogout())
+  }
+}
+
+
+export default connect(null, mapDispatchToProps)(App);

@@ -1,18 +1,34 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
+import Typography from '@material-ui/core/Typography'
+import Grid from '@material-ui/core/Grid'
+import Button from '@material-ui/core/Button'
 
 class Logout extends Component {
 
     componentDidMount() {
         localStorage.clear()
+        this.props.userLogout()
     }
 
     render() {
         return(
-            <div>
-                <h1>You are logged out!</h1>
-                <Link to="/">Click here to Login or signup!</Link>
-            </div>
+            <Grid container justify="center" alignItems="center" direction="column" spacing={32} style={{ minHeight: '100vh' }}>
+                <Grid item>
+                    <Typography variant="h2">Goodbye!</Typography>
+                </Grid>
+                
+                <Grid item>
+                    <Typography>You are logged out.</Typography>
+                </Grid>
+                
+                <Grid item>
+                    <Button component={Link} to="/">
+                        Click here to Login or Signup!
+                    </Button>
+                </Grid>
+                
+            </Grid>
         )
     }
 }

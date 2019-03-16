@@ -11,6 +11,12 @@ function userReducer (state={}, action) {
                 ...state,
                 currentUser: action.user
             }
+
+        case 'USER_LOGOUT':
+            return {
+                ...state,
+                currentUser: null
+            }
         case 'LOGIN_FAILURE': 
             return {
                 ...state,

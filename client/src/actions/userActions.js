@@ -49,3 +49,9 @@ export function loginUser(user) {
         })
     }
 }
+
+export function userLogout() {
+    return function (dispatch) {
+        dispatch({type:"USER_LOGOUT", user:""})
+    }
+}

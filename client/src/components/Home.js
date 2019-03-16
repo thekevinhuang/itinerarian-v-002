@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import {withStyles} from '@material-ui/core/styles'
+import GoogleButton from '../components/users/GoogleButton'
 
 const styles = theme => ({
     root: {
@@ -36,6 +37,10 @@ class Home extends Component {
                     </Grid>
                     <Grid item xs={12}>
                         <Typography variant="body1">Please <Link to={`/login`}>Login</Link> or <Link to={`/signup`}>Signup</Link>!</Typography>
+                    </Grid>
+
+                    <Grid item xs={12}>
+                        <GoogleButton/>
                     </Grid>
                 </Grid>
             )

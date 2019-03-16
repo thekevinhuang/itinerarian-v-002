@@ -27,18 +27,31 @@ class UsersController < ApplicationController
     end
 
     def login
-        
-        @user = User.find_by(username: params[:user][:username])
+        if authorize && !authorize['uid'].empty?
+            @user = User.find_by(email: authorize['info']['email'])
 
-        if @user
+            if !@user
+                @user = User.new(username: authorize['info']['email'], email: authorize['info']['email'])
+                @user.password = SecureRandom.hex(8)
+                @user.save         
+            end 
 
-            if @user.authenticate(params[:user][:password])
-                render json: @user
-            else
-                render :json => {:errors => @user.errors.full_messages}, :status => 422
-            end
+            render json: @user
+
         else
-            render :json => {:errors => "There was an issue with your login"}, :status => 422
+
+            @user = User.find_by(username: params[:user][:username])
+
+            if @user
+
+                if @user.authenticate(params[:user][:password])
+                    render json: @user
+                else
+                    render :json => {:errors => @user.errors.full_messages}, :status => 422
+                end
+            else
+                render :json => {:errors => "There was an issue with your login"}, :status => 422
+            end
         end
     end
 
@@ -46,5 +59,9 @@ class UsersController < ApplicationController
 
     def user_params
         params.require(:user).permit(:username, :email, :password)
+    end
+
+    def authorize
+        request.env['omniauth.auth']
     end
 end

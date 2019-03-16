@@ -18,6 +18,13 @@ Rails.application.routes.draw do
     end
 
     post '/signin' => 'users#login'
+
+    get '/google_signin', to: redirect("/auth/google_oauth2")
+
+    get 'auth/google_oauth2/callback' => 'sessions#create'
+
   end
+
+  
 
 end
