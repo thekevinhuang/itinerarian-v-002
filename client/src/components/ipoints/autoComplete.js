@@ -10,19 +10,29 @@ class AutoComplete extends React.Component {
         this.autoCompleteInput = React.createRef()
         this.autoComplete = null
         this.handlePlaceChange = this.handlePlaceChange.bind(this)
+        
     }
 
-
-    componentDidMount() {
+    autoCompleteLoad() {
         this.autoComplete = new google.maps.places.Autocomplete(
             this.autoCompleteInput.current
         )
         this.autoComplete.addListener("place_changed", this.handlePlaceChange)
     }
 
+
+    componentDidMount() {
+        this.autoCompleteLoad()
+    }
+
     handlePlaceChange() {
         const place = this.autoComplete.getPlace()
         this.props.onPlaceChange(place)
+        this.autoCompleteLoad()
+    }
+
+    clearInput() {
+        this.autoCompleteInput.current.value=""
     }
 
     render() {

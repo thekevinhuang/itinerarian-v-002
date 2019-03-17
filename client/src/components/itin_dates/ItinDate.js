@@ -2,12 +2,13 @@ import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import Button from '@material-ui/core/Button'
 
-const options = {weekday:'long', year: 'numeric', month: 'long', day: 'numeric'}
+const options = {weekday:'long', year: 'numeric', month: 'long', day: 'numeric', timeZone:'UTC'}
 
 class ItinDate extends Component {
 
     dateFormat = date => {
         let newDate = new Date (date)
+        
         return newDate.toLocaleDateString('en-US', options)
     }
 

@@ -78,5 +78,4 @@ class Ipoint extends React.Component {
     }
 }
 
-
 export default Ipoint

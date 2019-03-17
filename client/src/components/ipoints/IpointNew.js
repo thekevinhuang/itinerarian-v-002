@@ -38,6 +38,7 @@ class IpointNew extends Component {
         }
         this.props.addIpoint(ipoint)
         this.setState(initialState)
+        this.AutoComplete.clearInput()
     }
 
     ipointChange = name => event => {
@@ -56,7 +57,7 @@ class IpointNew extends Component {
                 <Grid container justify="center">
                     
                     <form onSubmit={this.newIpointSubmit}>
-                        <AutoComplete onPlaceChange={this.onPlaceChange.bind(this)}/>
+                        <AutoComplete onPlaceChange={this.onPlaceChange.bind(this)} ref={(instance)=>{this.AutoComplete = instance}}/>
                         <br/>
                         
                         <TextField
