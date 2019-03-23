@@ -28,6 +28,8 @@ gem 'omniauth-google-oauth2'
 
 gem 'dotenv-rails', '~> 2.1', '>=2.1.1'
 
+gem 'httparty'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

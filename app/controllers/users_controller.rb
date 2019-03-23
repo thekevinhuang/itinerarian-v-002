@@ -1,4 +1,10 @@
+require 'httparty'
+require 'json'
+
 class UsersController < ApplicationController
+
+    include HTTParty
+    
 
     def create
         
@@ -27,31 +33,32 @@ class UsersController < ApplicationController
     end
 
     def login
-        if authorize && !authorize['uid'].empty?
-            @user = User.find_by(email: authorize['info']['email'])
-
-            if !@user
-                @user = User.new(username: authorize['info']['email'], email: authorize['info']['email'])
-                @user.password = SecureRandom.hex(8)
-                @user.save         
-            end 
-
-            render json: @user
-
-        else
-
-            @user = User.find_by(username: params[:user][:username])
-
-            if @user
-
-                if @user.authenticate(params[:user][:password])
-                    render json: @user
-                else
-                    render :json => {:errors => @user.errors.full_messages}, :status => 422
-                end
+        
+        @user = User.find_by(email: params[:user][:email])
+        if @user
+            if @user.authenticate(params[:user][:password])
+                render json: @user
             else
-                render :json => {:errors => "There was an issue with your login"}, :status => 422
+                render :json => {:errors => @user.errors.full_messages}, :status => 422
             end
+        else
+            render :json => {:errors => "There was an issue with your login"}, :status => 422
+        end
+    
+    end
+
+    def google_authorization
+        url= "https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=#{params["code"]}"
+        response = HTTParty.get(url)
+        data = response.parsed_response
+        @user = User.find_or_initialize_by(email: data["email"])
+        @user.username = data["name"]
+        @user.password = SecureRandom.hex(8)
+
+        if @user.save
+            render json: @user
+        else
+            render :json => {:errors => @user.errors.full_messages}, :status => 422
         end
     end
 

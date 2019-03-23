@@ -4,11 +4,19 @@ import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
 
+const gapi = window.gapi
+
 class Logout extends Component {
 
     componentDidMount() {
         localStorage.clear()
         this.props.userLogout()
+        this.googleLogout()
+    }
+
+    googleLogout() {
+        var auth2 = gapi.auth2.getAuthInstance()
+        auth2.signOut()
     }
 
     render() {

@@ -7,7 +7,12 @@
     <script async defer 
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDroCQQnjlLw_O5wKx7QBfO-mtTuh67js0&libraries=places">
     </script>
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+    <script>
+      function init() {
+        gapi.load('auth2', function() { });
+      }
+    </script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <meta

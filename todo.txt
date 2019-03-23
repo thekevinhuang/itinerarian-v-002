@@ -1,17 +1,12 @@
-1) Start working on deletions
-2) Create delete
-
-1) Add rails route to destroy - COMPLETE
-2) Add controller action to destroy - COMPLETE
-3) Add reducer
-4) Add action
-5) Map the new delete to the props
-6) pass to children
-
-Current reducer action is assuming the return of all the items, might need to identify the parent prior to deletion to filter
-
-create a button for delete?
 
 after arriving on itineraries after loggin in, nothing loads
 
-FINISH THE GMAPS BUTTON NAME LOAD
+Google Login To-dos:
+
+Figure out how to rails omniauth validate results to get auth response?
+
+1) Complete sign in function
+2) Separate google login action in order to either sign up OR sign in if that user exists already
+2a) Figure out the token information for oauth?
+3) possibly callback from the google button to the container in order to render the details correctly
+4)

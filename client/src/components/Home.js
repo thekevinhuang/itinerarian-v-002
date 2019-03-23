@@ -3,7 +3,10 @@ import {Link} from 'react-router-dom'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import {withStyles} from '@material-ui/core/styles'
-import GoogleButton from '../components/users/GoogleButton'
+import GoogleButton from './users/GoogleButton'
+import {Redirect} from 'react-router-dom'
+import {connect} from 'react-redux'
+
 
 const styles = theme => ({
     root: {
@@ -23,11 +26,11 @@ class Home extends Component {
     }
 
     renderPage() {
-        if (this.state.loggedin) {
-            return(
-                <div>
-                    <h3>Hello {this.state.currentUser.username}!</h3>
-                </div>
+        if(this.state.currentUser||this.props.currentUser){
+            return (
+            <Grid container justify="center" alignItems="center" direction="column" spacing={32} style={{ minHeight: '100vh' }}>
+                <Redirect to="/itineraries"/>
+            </Grid>
             )
         } else {
             return(
@@ -58,4 +61,11 @@ class Home extends Component {
     }
 }
 
-export default withStyles(styles)(Home)
+const mapStateToProps = state => {
+    return {
+        currentUser: state.user.currentUser,
+    }
+}
+
+
+export default connect(mapStateToProps)(withStyles(styles)(Home))
