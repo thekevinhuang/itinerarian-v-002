@@ -50,7 +50,7 @@ export function showIpoint(ipoint_id) {
             method: 'GET',
             headers: {
                 Accept: 'application/json', 
-                'Content-Type' : 'applicaiton/json'
+                'Content-Type' : 'application/json'
             },
             credentials: 'same-origin'
         })

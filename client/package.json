@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.9.2",
+    "google-maps-react": "^2.0.2",
     "material-ui": "^0.20.2",
     "react": "^16.8.3",
     "react-async-script-loader": "^0.3.0",

@@ -1,12 +1,4 @@
 
 after arriving on itineraries after loggin in, nothing loads
 
-Google Login To-dos:
-
-Figure out how to rails omniauth validate results to get auth response?
-
-1) Complete sign in function
-2) Separate google login action in order to either sign up OR sign in if that user exists already
-2a) Figure out the token information for oauth?
-3) possibly callback from the google button to the container in order to render the details correctly
-4)
+Add ipoint details
