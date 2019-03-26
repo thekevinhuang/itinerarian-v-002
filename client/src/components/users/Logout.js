@@ -15,8 +15,10 @@ class Logout extends Component {
     }
 
     googleLogout() {
-        var auth2 = gapi.auth2.getAuthInstance()
-        auth2.signOut()
+        if (gapi.auth2) {
+            var auth2 = gapi.auth2.getAuthInstance()
+            auth2.signOut()
+        }
     }
 
     render() {
