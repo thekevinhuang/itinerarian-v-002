@@ -15,6 +15,17 @@ const styles = theme => ({
     }
 })
 
+const HomeDisplay = () =>
+    <React.Fragment>
+        <Grid item xs={12} >
+            <Typography component="h2" variant="h2">Welcome to Itinerarian!</Typography>
+        </Grid>
+        <Grid item xs={12}>
+            <Typography variant="body1">Please <Link to={`/login`}>Login</Link> or <Link to={`/signup`}>Signup</Link>!</Typography>
+        </Grid>
+    </React.Fragment>
+    
+
 class Home extends Component {
 
     constructor(){
@@ -35,13 +46,7 @@ class Home extends Component {
         } else {
             return(
                 <Grid container justify="center" alignItems="center" direction="column" spacing={32} style={{ minHeight: '100vh' }}>
-                    <Grid item xs={12} >
-                        <Typography component="h2" variant="h2">Welcome to Itinerarian!</Typography>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <Typography variant="body1">Please <Link to={`/login`}>Login</Link> or <Link to={`/signup`}>Signup</Link>!</Typography>
-                    </Grid>
-
+                    <HomeDisplay/>
                     <Grid item xs={12}>
                         <GoogleButton/>
                     </Grid>

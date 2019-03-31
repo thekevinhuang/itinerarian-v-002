@@ -1,8 +1,19 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import Button from '@material-ui/core/Button'
+import DeleteButton from '../general/DeleteButton'
 
 const google = window.google
+
+
+const IpointButton = (props) => 
+    <Button 
+        component={Link}
+        id={`ipoint-${props.id}`}
+        to={`/points/${props.id}`}
+    >
+        {props.name}
+    </Button>    
 
 class Ipoint extends React.Component {
 
@@ -44,6 +55,9 @@ class Ipoint extends React.Component {
         
     }
     
+    
+
+
     deleteIpoint = () => {
         this.props.deleteIpoint(this.props.ipoint.id)
     }
@@ -53,24 +67,20 @@ class Ipoint extends React.Component {
         if(this.props.ipoint) {
             return(
                 <div id={`ipoint-${this.props.ipoint.id}-holder`}>
-                    <div id={`ipoint-${this.props.ipoint.id}-goog`} ref={this.googleNameButton}>
-
-                    </div>
-                    <Button 
+                    <div id={`ipoint-${this.props.ipoint.id}-goog`} ref={this.googleNameButton}></div>
+                    <IpointButton 
                         component={Link}
-                        id={`ipoint-${this.props.ipoint.id}`}
-                        to={`/points/${this.props.ipoint.id}`}
-                    >
-                        {this.state.name}
-                    </Button>
-                    <Button onClick={this.deleteIpoint} style={{color:'red'}}>X</Button>
+                        id={this.props.ipoint.id}
+                        name={this.state.name}
+                    />
+                    <DeleteButton clickFunction={this.deleteIpoint}/>
                     <br/>
                 </div >
             )
         } else {
             return (
                 <div>
-                    Hello
+                    Itinerary Point Not Loaded
                 </div>
             )
         }

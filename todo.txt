@@ -1,4 +1,22 @@
+React Containers:
 
-after arriving on itineraries after loggin in, nothing loads
+- Itineraries
+- Itinerary Dates
+- Itinerary Points
 
-Add ipoint details
+Stateless Components:
+
+- Home.js: HomeDisplay
+- Itinerary.js: ItineraryButton
+- Ipoint.js: IpointButton
+- Navbar.js: Navbar
+- DeleteButton.js: DeleteButton
+
+Routes:
+
+- /
+- /itineraries
+- /dates
+- /points
+- /signup
+- /logout
