@@ -1,4 +1,5 @@
 export function addItinerary(itinerary) {
+    
     return function(dispatch) {
         return fetch(`/api/users/${itinerary.user_id}/itineraries`, {
             method: 'POST',
@@ -12,12 +13,14 @@ export function addItinerary(itinerary) {
         .then(res=>res.json())
         .then((responseJson) => {
             if(!responseJson.error) {
+                
                 dispatch({type:"ADD_ITINERARY", itinerary: responseJson})
             } else {
                 dispatch({type:"ADD_ITINERARY_FAILURE", error: responseJson.error})
             }
         })
     }
+    
 }
 
 export function fetchItineraries(user_id) {

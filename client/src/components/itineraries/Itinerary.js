@@ -19,6 +19,7 @@ export default class Itinerary extends Component {
             <React.Fragment>
                 <ItineraryButton id={this.props.itinerary.id} name={this.props.itinerary.name}/>
                 <DeleteButton clickFunction={this.deleteItinerary}/>
+                
                 <br/>
             </React.Fragment>
         )

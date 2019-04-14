@@ -32,7 +32,9 @@ class ItineraryNew extends Component {
             end_date: this.state.end_date
         }
         
+        
         this.props.addItinerary(itinerary)
+        
 
         this.setState({
             name: "",

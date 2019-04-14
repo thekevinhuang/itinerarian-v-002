@@ -34,7 +34,7 @@ class UsersController < ApplicationController
 
     def login
         
-        @user = User.find_by(email: params[:user][:email])
+        @user = User.find_by(username: params[:user][:username])
         if @user
             if @user.authenticate(params[:user][:password])
                 render json: @user
