@@ -6,7 +6,6 @@ function itinDateReducer (state={}, action) {
         case 'FETCH_ITIN_DATES':
             return {...state, itinDates:action.itinDates}
         case 'SHOW_ITIN_DATE':
-            
             return {...state, itinDate:action.itinDate}
         case 'SHOW_ITIN_DATE_FAILURE':
             return {...state, error: action.error}

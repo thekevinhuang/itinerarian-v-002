@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :itineraries
     resources :itin_dates
     resources :ipoints
+    resources :packing_items
 
     resources :users do
       resources :itineraries
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
 
     resources :itineraries do
       resources :itin_dates
+      resources :packing_items
     end
     
     resources :itin_dates do
