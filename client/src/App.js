@@ -58,7 +58,7 @@ class App extends Component {
             <Route path="/itineraries" render={(routerProps) => <ItinerariesContainer {...routerProps}/>}/>
             <Route path="/dates" render={(routerProps)=> <ItinDatesContainer {...routerProps}/>}/>
             <Route path="/points" render={(routerProps)=> <IpointsContainer{...routerProps}/>}/>
-            <Route path="/packing" render={(routerProps)=> <PackingItemsContainer{...routerProps}/>}/>
+            <Route path="/packing_items" render={(routerProps)=> <PackingItemsContainer{...routerProps}/>}/>
           </Grid>
         </Grid>
       </Router>

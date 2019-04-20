@@ -10,3 +10,5 @@ function packingItemReducer (state={}, action) {
             return state
     }
 }
+
+export default packingItemReducer

@@ -1,52 +1,36 @@
 import React, {Component} from 'react'
-import {connect} from 'react-redux'
 import {Route} from 'react-router-dom'
-import {addPackingItem} from '../actions/packingItemActions'
-import PackingItems from '../components/packing_items/PackingItems'
-import PackingItemNew from '../components/packing_items/PackingItemNew'
-
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
+import {connect} from 'react-redux'
 
-const initialState = {
-    name: '',
-    description: '',
-    quantity: 0
-}
-
+import PackingItems from '../components/packing_items/PackingItems'
+import PackingItemNew from '../components/packing_items/PackingItemNew'
+import {addPackingItem} from '../actions/packingItemActions'
 
 class PackingItemsContainer extends Component {
-    constructor() {
-        super()
-        this.state=initialState
-    }
 
     render() {
         return (
-            <Grid container justify="flex-start" alignItems="center" direction="column" spacing={24} style={{ minHeight: '100vh' }}>
+            <Grid container justify="flex-start" alignItems="center" direction="column" spacing={16} style={{ minHeight: '50vh' }}>
                 <Grid item>
-                    <Typography>Items to Pack</Typography>
+                    <Typography component="h6" variant="h6">Packing List</Typography>
                 </Grid>
                 <Grid item>
-                    <Route exact path={} render={(props)=> (
-                        <Grid container direction="row" justify="space-between" alignItems="center" spacing={16}>
+                    <Route path="/itineraries" render={(routerProps) => (
+                        <Grid container direction="column" justify="space-between" alignItems="center" spacing={16}>
                             <Grid item>
-                                <PackingItemNew/>
+                                <PackingItems itinerary={this.props.itinerary}{...routerProps}/>
                             </Grid>
-
                             <Grid item>
-                                <PackingItems/>
+                                <PackingItemNew addPackingItem={this.props.addPackingItem} itinerary={this.props.itinerary}/>
                             </Grid>
                         </Grid>
-                    )}/>
-                    <Route path={} render={(props)=> (
-                      <div><PackingItemsShow/></div>  
-                    )}/>
+                    )}/> 
                 </Grid>
-
             </Grid>
         )
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PackingItemsContainer)
+export default connect()(PackingItemsContainer)
