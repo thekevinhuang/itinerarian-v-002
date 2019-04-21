@@ -19,3 +19,24 @@ export function addPackingItem(packing_item) {
         })
     }
 }
+
+export function fetchPackingItems(itinerary_id) {
+    return function(dispatch) {
+        return fetch (`/api/itineraries/${itinerary_id}/packing_items`, {
+            method: 'GET', 
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            credentials: 'same-origin'
+        })
+        .then(res=>res.json())
+        .then((responseJson)=> {
+            if(!responseJson.error) {
+                dispatch({type:"ADD_PACKING_ITEM", packing_items: responseJson})
+            } else {
+                dispatch({type:"ADD_PACKING_ITEM_FAILURE", error: responseJson.error})
+            }
+        })
+    }
+}

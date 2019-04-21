@@ -6,9 +6,11 @@ import {connect} from 'react-redux'
 
 import PackingItems from '../components/packing_items/PackingItems'
 import PackingItemNew from '../components/packing_items/PackingItemNew'
-import {addPackingItem} from '../actions/packingItemActions'
+import {addPackingItem, fetchPackingItems} from '../actions/packingItemActions'
 
 class PackingItemsContainer extends Component {
+
+    
 
     render() {
         return (
@@ -20,7 +22,7 @@ class PackingItemsContainer extends Component {
                     <Route path="/itineraries" render={(routerProps) => (
                         <Grid container direction="column" justify="space-between" alignItems="center" spacing={16}>
                             <Grid item>
-                                <PackingItems itinerary={this.props.itinerary}{...routerProps}/>
+                                <PackingItems packingItems={this.props.packingItems}{...routerProps}/>
                             </Grid>
                             <Grid item>
                                 <PackingItemNew addPackingItem={this.props.addPackingItem} itinerary={this.props.itinerary}/>
@@ -33,4 +35,17 @@ class PackingItemsContainer extends Component {
     }
 }
 
-export default connect()(PackingItemsContainer)
+const mapStateToProps = state => {
+    return {
+        packingItems: state.packingItems
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        addPackingItem: (packing_item) => dispatch(addPackingItem(packing_item)),
+        fetchPackingItems: (itinerary_id) => dispatch(fetchPackingItems(itinerary_id))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PackingItemsContainer)

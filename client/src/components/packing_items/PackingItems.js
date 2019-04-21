@@ -6,10 +6,10 @@ class PackingItems extends Component {
 
     renderPackingItems = () => {
         
-        if (!this.props.itinerary.packing_items.length) {
+        if (!this.props.packingItems.length) {
             return <div>You need to add some items!</div>
         } else {
-            return this.props.itinerary.packing_items.map((packingItem, index)=> <PackingItem packingItem={packingItem}/>)
+            return this.props.packingItems.map((packingItem, index)=> <PackingItem packingItem={packingItem}/>)
         }
     }
 

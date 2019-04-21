@@ -20,3 +20,7 @@ Routes:
 - /points
 - /signup
 - /logout
+
+Todo:
+
+add packing list item form shows but does not submit yet. Need to figure out what is going on there....spread operator.
