@@ -33,9 +33,9 @@ export function fetchPackingItems(itinerary_id) {
         .then(res=>res.json())
         .then((responseJson)=> {
             if(!responseJson.error) {
-                dispatch({type:"FETCH_PACKING_ITEM", packingItems: responseJson})
+                dispatch({type:"FETCH_PACKING_ITEMS", packingItems: responseJson})
             } else {
-                dispatch({type:"FETCH_PACKING_ITEM_FAILURE", error: responseJson.error})
+                dispatch({type:"FETCH_PACKING_ITEMS_FAILURE", error: responseJson.error})
             }
         })
     }

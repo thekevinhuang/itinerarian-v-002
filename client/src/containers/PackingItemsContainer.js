@@ -39,7 +39,7 @@ class PackingItemsContainer extends Component {
 
 const mapStateToProps = state => {
     return {
-        packingItems: state.packingItems
+        packingItems: state.packingItems.packingItems
     }
 }
 

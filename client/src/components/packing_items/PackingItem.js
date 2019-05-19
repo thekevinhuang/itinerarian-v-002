@@ -1,11 +1,12 @@
 import React, {Component} from 'react'
+import Typography from '@material-ui/core/Typography'
 
 class PackingItem extends Component {
     render() {
         return (
-            <div>
-                This is one item
-            </div>
+            <React.Fragment>
+                <Typography variant="h5">{this.props.packingItem.name}</Typography>
+            </React.Fragment>
         )
     }
 }
