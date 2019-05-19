@@ -10,7 +10,7 @@
     "react": "^16.8.3",
     "react-async-script-loader": "^0.3.0",
     "react-dom": "^16.8.3",
-    "react-native": "^0.58.6",
+    "react-native": "^0.59.8",
     "react-redux": "^6.0.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "^2.1.8",

@@ -10,8 +10,10 @@ import {addPackingItem, fetchPackingItems} from '../actions/packingItemActions'
 
 class PackingItemsContainer extends Component {
 
+    componentDidMount() {
+        this.props.fetchPackingItems(this.props.itinerary.id)
+    }
     
-
     render() {
         return (
             <Grid container justify="flex-start" alignItems="center" direction="column" spacing={16} style={{ minHeight: '50vh' }}>

@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import PackingItem from './PackingItem'
-import PackingItemNew from './PackingItemNew'
+
 
 class PackingItems extends Component {
 

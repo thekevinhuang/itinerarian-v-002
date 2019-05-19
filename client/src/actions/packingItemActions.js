@@ -12,7 +12,7 @@ export function addPackingItem(packing_item) {
         .then(res=>res.json())
         .then((responseJson) => {
             if(!responseJson.error) {
-                dispatch({type:"ADD_PACKING_ITEM", packing_item: responseJson})
+                dispatch({type:"ADD_PACKING_ITEM", packingItem: responseJson})
             } else {
                 dispatch({type:"ADD_PACKING_ITEM_FAILURE", error: responseJson.error})
             }
@@ -33,9 +33,9 @@ export function fetchPackingItems(itinerary_id) {
         .then(res=>res.json())
         .then((responseJson)=> {
             if(!responseJson.error) {
-                dispatch({type:"ADD_PACKING_ITEM", packing_items: responseJson})
+                dispatch({type:"FETCH_PACKING_ITEM", packingItems: responseJson})
             } else {
-                dispatch({type:"ADD_PACKING_ITEM_FAILURE", error: responseJson.error})
+                dispatch({type:"FETCH_PACKING_ITEM_FAILURE", error: responseJson.error})
             }
         })
     }

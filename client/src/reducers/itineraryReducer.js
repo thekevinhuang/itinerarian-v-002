@@ -3,7 +3,7 @@ function itineraryReducer (state={}, action) {
     switch(action.type) {
         
         case 'ADD_ITINERARY' :
-
+            debugger
             return {...state, itineraries:[...state.itineraries, action.itinerary]}
 
         case 'FETCH_ITINERARIES' :
