@@ -6,6 +6,8 @@ function packingItemReducer (state={}, action) {
             return {...state, packingItem:action.packingItem}
         case 'FETCH_PACKING_ITEMS':
             return {...state, packingItems:[action.packingItems]}
+        case 'DELETE_PACKING_ITEMS':
+            return {...state, packingItems:[action.packingItems]}
         default:
             return state
     }

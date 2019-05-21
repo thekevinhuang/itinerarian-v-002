@@ -6,7 +6,7 @@ import {connect} from 'react-redux'
 
 import PackingItems from '../components/packing_items/PackingItems'
 import PackingItemNew from '../components/packing_items/PackingItemNew'
-import {addPackingItem, fetchPackingItems} from '../actions/packingItemActions'
+import {addPackingItem, fetchPackingItems, deletePackingItem} from '../actions/packingItemActions'
 
 class PackingItemsContainer extends Component {
 
@@ -47,7 +47,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         addPackingItem: (packing_item) => dispatch(addPackingItem(packing_item)),
-        fetchPackingItems: (itinerary_id) => dispatch(fetchPackingItems(itinerary_id))
+        fetchPackingItems: (itinerary_id) => dispatch(fetchPackingItems(itinerary_id)),
+        deletePackingItem: (packing_item_id) => dispatch(deletePackingItem(packing_item_id))
     }
 }
 

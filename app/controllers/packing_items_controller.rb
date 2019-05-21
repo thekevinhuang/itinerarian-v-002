@@ -23,7 +23,15 @@ class PackingItemsController < ApplicationController
             @packing_items = PackingItem.all
         end
         render json: @packing_items
-    end 
+    end
+
+    def destroy
+        @packing_item = PackingItem.find_by(id: params[:id])
+        @itinerary = @packing_item.itinerary
+        @packing_item.destroy
+        @packing_items = PackingItem.where(itinerary_id: @itinerary.id)
+        render json: @packing_items
+    end
 
     private
 
