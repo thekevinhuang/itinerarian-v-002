@@ -23,4 +23,4 @@ Routes:
 
 Todo:
 
-add packing list item form shows but does not submit yet. Need to figure out what is going on there....spread operator.
+packing items don't seem to be persisting? need to check out how to display entire lists.

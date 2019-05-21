@@ -1,7 +1,6 @@
 function packingItemReducer (state={}, action) {
     switch(action.type) {
         case 'ADD_PACKING_ITEM':
-            
             return {...state, packingItems:[...state.packingItems, action.packingItem]}
         case 'SHOW_PACKING_ITEM':
             return {...state, packingItem:action.packingItem}

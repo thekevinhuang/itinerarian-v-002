@@ -15,6 +15,7 @@ class PackingItemsContainer extends Component {
     }
     
     render() {
+        
         return (
             <Grid container justify="flex-start" alignItems="center" direction="column" spacing={16} style={{ minHeight: '50vh' }}>
                 <Grid item>

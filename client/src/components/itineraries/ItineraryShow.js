@@ -50,7 +50,7 @@ class ItineraryShow extends Component {
                                 </div>
                             </Grid>
                         </Grid>
-                    </Grid>
+                     </Grid>
 
                     <Grid item>
                         <ItinDatesContainer itinerary={this.props.currItinerary}/>
