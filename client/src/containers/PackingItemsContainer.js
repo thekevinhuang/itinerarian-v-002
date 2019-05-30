@@ -25,7 +25,7 @@ class PackingItemsContainer extends Component {
                     <Route path="/itineraries" render={(routerProps) => (
                         <Grid container direction="column" justify="space-between" alignItems="center" spacing={16}>
                             <Grid item>
-                                <PackingItems packingItems={this.props.packingItems}{...routerProps}/>
+                                <PackingItems packingItems={this.props.packingItems} deletePackingItem={this.props.deletePackingItem}{...routerProps}/>
                             </Grid>
                             <Grid item>
                                 <PackingItemNew addPackingItem={this.props.addPackingItem} itinerary={this.props.itinerary}/>
