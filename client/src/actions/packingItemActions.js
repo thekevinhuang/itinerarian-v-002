@@ -43,11 +43,11 @@ export function fetchPackingItems(itinerary_id) {
 
 export function deletePackingItem(packing_item_id) {
     return function(dispatch) {
-        return fetch (`/api/packing_items/${packing_item_id}`, {
+        return fetch(`/api/packing_items/${packing_item_id}`, {
             method: 'DELETE',
-            headers: {
+            headers:{
                 Accept: 'application/json',
-                'Content-Type:': 'application/json'
+                'Content-Type' :'application/json'
             },
             credentials: 'same-origin'
         })
@@ -56,7 +56,7 @@ export function deletePackingItem(packing_item_id) {
             if(!responseJson.error) {
                 dispatch({type:"DELETE_PACKING_ITEM", packingItems: responseJson})
             } else {
-                dispatch({type:"DELETE_PACKING_ITEMS_FAILURE", error:responseJson.error})
+                dispatch({type:"DELETE_PACKING_ITEMS_FAILURE", error: responseJson.error})
             }
         })
     }
