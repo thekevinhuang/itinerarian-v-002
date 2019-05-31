@@ -8,7 +8,7 @@ function ipointReducer (state={}, action) {
         case 'SHOW_IPOINT':
             return {...state, ipoint: action.ipoint}
         case 'DELETE_IPOINT':
-            return {...state, ipoints:action.ipoints}
+            return {...state, ipoints: action.ipoints}
 
         case 'ADD_IPOINT_FAILURE':
             return state

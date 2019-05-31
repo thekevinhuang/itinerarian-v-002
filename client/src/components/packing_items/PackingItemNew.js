@@ -11,9 +11,9 @@ const initialState = {
 }
 
 class PackingItemNew extends Component {
-    constructor() {
-        super()
-        this.state= initialState
+    constructor(props) {
+        super(props)
+        this.state= {...initialState,itinerary: this.props.itinerary}
     }
 
     newPackingItemSubmit = (event) => {
