@@ -5,8 +5,12 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.9.3",
+    "braces": "^3.0.2",
     "google-maps-react": "^2.0.2",
+    "js-yaml": "^3.13.1",
+    "lodash": "^4.17.14",
     "material-ui": "^0.20.2",
+    "mem": "^5.1.1",
     "react": "^16.8.6",
     "react-async-script-loader": "^0.3.0",
     "react-dom": "^16.8.6",
@@ -16,7 +20,8 @@
     "react-scripts": "^2.1.8",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
-    "save": "^2.4.0"
+    "save": "^2.4.0",
+    "ws": "^7.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
