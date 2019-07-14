@@ -6,7 +6,7 @@ import IpointsContainer from '../../containers/IpointsContainer'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 
-const options = {weekday:'long', year: 'numeric', month: 'long', day: 'numeric'}
+const options = {weekday:'long', year: 'numeric', month: 'long', day: 'numeric', timeZone:'UTC'}
 
 class ItinDateShow extends Component {
 
