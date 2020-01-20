@@ -48,7 +48,7 @@ export function showItinerary(itinerary_id) {
     return function(dispatch) {
         return fetch(`/api/itineraries/${itinerary_id}`, {
             method: 'GET',
-            header: {
+            headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json'
             },
@@ -70,7 +70,7 @@ export function deleteItinerary(itinerary_id) {
     return function(dispatch) {
         return fetch(`api/itineraries/${itinerary_id}`, {
             method: 'DELETE',
-            header: {
+            headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json'
             },

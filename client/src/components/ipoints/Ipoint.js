@@ -54,9 +54,6 @@ class Ipoint extends React.Component {
         }
         
     }
-    
-    
-
 
     deleteIpoint = () => {
         this.props.deleteIpoint(this.props.ipoint.id)

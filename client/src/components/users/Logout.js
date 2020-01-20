@@ -16,7 +16,7 @@ class Logout extends Component {
 
     googleLogout() {
         if (gapi.auth2) {
-            var auth2 = gapi.auth2.getAuthInstance()
+            let auth2 = gapi.auth2.getAuthInstance()
             auth2.signOut()
         }
     }
