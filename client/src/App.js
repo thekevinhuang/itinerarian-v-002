@@ -44,7 +44,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Grid container direction="column" justify="center" align-items="center" spacing={40}>
+        <Grid container direction="column" justify="center" align-items="center" spacing={5}>
           <Grid item>
           <Switch>
               <Route exact path="/" component={Home}/>

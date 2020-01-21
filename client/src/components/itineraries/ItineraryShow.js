@@ -31,16 +31,16 @@ class ItineraryShow extends Component {
         
         if(this.props.currItinerary){
             return (
-                <Grid container direction="column" justify="center"spacing={16}>
-                    <Grid item>
+                <Grid container alignItems="center" direction="column" justify="center" spacing={5}>
+                    <Grid item >
                         <Typography variant="h5">{this.props.currItinerary.name}</Typography>
                     </Grid>
-                    <Grid item>
-                        <Typography variant="caption">{this.props.currItinerary.description}</Typography>
+                    <Grid item style={{padding:10}}>
+                        <Typography variant="body1">{this.props.currItinerary.description}</Typography>
                     </Grid>
 
                     <Grid item>
-                        <Grid container direction="column" justify="center" spacing = {8}>
+                        <Grid container direction="column" justify="center" spacing = {5}>
                             <Grid item>
                                 <Button onClick={this.togglePacking} color ="primary">Show Packing List</Button>
                             </Grid>

@@ -9,7 +9,7 @@ class ItinDates extends Component {
     
     render() {
         return(
-            <div>{this.renderItinDates()}</div>
+            <React.Fragment>{this.renderItinDates()}</React.Fragment>
         )
     }
 }

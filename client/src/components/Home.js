@@ -39,13 +39,13 @@ class Home extends Component {
     renderPage() {
         if(this.state.currentUser||this.props.currentUser){
             return (
-            <Grid container justify="center" alignItems="center" direction="column" spacing={32} style={{ minHeight: '100vh' }}>
+            <Grid container justify="center" alignItems="center" direction="column" spacing={5} style={{ minHeight: '100vh' }}>
                 <Redirect to="/itineraries"/>
             </Grid>
             )
         } else {
             return(
-                <Grid container justify="center" alignItems="center" direction="column" spacing={32} style={{ minHeight: '100vh' }}>
+                <Grid container justify="center" alignItems="center" direction="column" spacing={5} style={{ minHeight: '100vh' }}>
                     <HomeDisplay/>
                     <Grid item xs={12}>
                         <GoogleButton/>

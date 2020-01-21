@@ -17,13 +17,13 @@ class PackingItemsContainer extends Component {
     render() {
         
         return (
-            <Grid container justify="flex-start" alignItems="center" direction="column" spacing={16} style={{ minHeight: '50vh' }}>
+            <Grid container justify="flex-start" alignItems="center" direction="column" spacing={5} style={{ minHeight: '50vh' }}>
                 <Grid item>
                     <Typography component="h6" variant="h6">Packing List</Typography>
                 </Grid>
                 <Grid item>
                     <Route path="/itineraries" render={(routerProps) => (
-                        <Grid container direction="column" justify="space-between" alignItems="center" spacing={16}>
+                        <Grid container direction="column" justify="space-between" alignItems="center" spacing={5}>
                             <Grid item>
                                 <PackingItems packingItems={this.props.packingItems} deletePackingItem={this.props.deletePackingItem}{...routerProps}/>
                             </Grid>

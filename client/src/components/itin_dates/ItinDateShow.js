@@ -5,6 +5,8 @@ import IpointsContainer from '../../containers/IpointsContainer'
 
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
+import { Link } from '@material-ui/core'
+import Button from '@material-ui/core/Button'
 
 const options = {weekday:'long', year: 'numeric', month: 'long', day: 'numeric', timeZone:'UTC'}
 
@@ -23,9 +25,12 @@ class ItinDateShow extends Component {
         if(this.props.itinDate){
             let itindate = this.props.itinDate
             return(
-                <Grid container direction="column" justify="center" alignItems="center"spacing={32}>
+                <Grid container direction="column" justify="center" alignItems="center"spacing={5}>
                     <Grid item>
                         <Typography variant="h5">{this.dateFormat(itindate.date)}</Typography>
+                    </Grid>
+                    <Grid>
+                        <Button component={Link} to ={`/itineraries/${itindate.itinerary_id}`}> Back to Itinerary</Button>
                     </Grid>
                     <Grid item>
                         <IpointsContainer itinDate={itindate}/>
@@ -41,7 +46,7 @@ class ItinDateShow extends Component {
     render() {
         
         return(
-            <div>{this.renderItinDateShow()}</div>
+            <React.Fragment>{this.renderItinDateShow()}</React.Fragment>
         )
     }
 }

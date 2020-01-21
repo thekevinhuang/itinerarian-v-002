@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 
 const Navbar = () =>
-    <Grid container direction="row" justify="center" align-items="center" spacing={16}>
+    <Grid container direction="row" justify="center" align-items="center" spacing={5}>
         <Grid item>
             <Button
                 component={Link}

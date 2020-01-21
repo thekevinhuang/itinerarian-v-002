@@ -38,13 +38,14 @@ class ItinerariesContainer extends Component {
 
     render () {
         return (
-            <Grid container justify="flex-start" alignItems="center" direction="column" spacing={24} style={{ minHeight: '100vh' }}>
+            <Grid container justify="flex-start" alignItems="center" direction="column" spacing={5} style={{ minHeight: '100vh' }}>
                 <Grid item>
                     <Typography component="h2" variant="h3">Itineraries</Typography>
                 </Grid>
-                <Grid item>
+                
+                <Grid item style={{padding:20}}>
                     <Route exact path={`${this.props.match.url}`} render={(props)=> (
-                        <Grid container direction="row" justify="space-between" alignItems="center" spacing={16}>
+                        <Grid container direction="row" justify="space-between" alignItems="center" spacing={5}>
                             <Grid item>
                                 <ItineraryNew addItinerary={this.props.addItinerary} currentUser={this.props.currentUser}/>
                             </Grid>

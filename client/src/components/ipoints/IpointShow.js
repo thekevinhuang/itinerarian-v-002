@@ -69,7 +69,7 @@ class IpointShow extends React.Component {
         this.googlePointLoad()
         if (this.props.ipoint) {
             return (
-                <Grid container justify="center" direction="column" alignItems="center" spacing={16}>
+                <Grid container justify="center" direction="column" alignItems="center" spacing={5}>
                     <Grid item>
                         <Typography variant="h4">{this.state.name}</Typography>
                     </Grid>
@@ -88,7 +88,7 @@ class IpointShow extends React.Component {
 
     render() {
         return(
-            <Grid container justify="center" direction="column" alignItems="center" spacing={32}>
+            <Grid container justify="center" direction="column" alignItems="center" spacing={5}>
                 <Grid item>
                     <div ref={this.googlePlaceShow}></div>
                 </Grid>
