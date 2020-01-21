@@ -23,4 +23,5 @@ Routes:
 
 Todo:
 
-finish ading in delete button for packing items then + -
+Research and implement a strategy for data refreshes upon link navigation via React Router without willComponentUpdate
+Potentially implement a better async strategy for loading google assets
