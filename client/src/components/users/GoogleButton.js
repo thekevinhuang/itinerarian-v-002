@@ -7,14 +7,16 @@ const gapi = window.gapi
 class GoogleButton extends Component {
 
     componentDidMount() {
-        gapi.signin2.render('google-signin2', {
-            'scope': 'profile email',
-            'width': 120,
-            'height': 36,
-            'longtitle': false,
-            'theme': 'dark',
-            'onsuccess': this.onSignIn,
-        })
+        if(gapi){
+            gapi.signin2.render('google-signin2', {
+                'scope': 'profile email',
+                'width': 120,
+                'height': 36,
+                'longtitle': false,
+                'theme': 'dark',
+                'onsuccess': this.onSignIn,
+            })
+        }
     }
     
     onSignIn = (googleUser) => {

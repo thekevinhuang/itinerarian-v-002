@@ -5,7 +5,7 @@ import IpointsContainer from '../../containers/IpointsContainer'
 
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
-import { Link } from '@material-ui/core'
+import {Link} from 'react-router-dom'
 import Button from '@material-ui/core/Button'
 
 const options = {weekday:'long', year: 'numeric', month: 'long', day: 'numeric', timeZone:'UTC'}

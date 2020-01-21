@@ -10,7 +10,6 @@ import Grid from '@material-ui/core/Grid'
 class ItinDatesContainer extends Component {
     
     render() {
-        
         return(
             <Grid container justify="flex-start" alignItems="center" direction="column" spacing={5} style={{ minHeight: '100vh' }}>
                 <Grid>

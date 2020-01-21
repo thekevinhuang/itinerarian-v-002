@@ -4,6 +4,8 @@ import {showIpoint} from '../../actions/ipointActions'
 
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
+import {Link} from 'react-router-dom'
+import Button from '@material-ui/core/Button'
 
 import GoogleMaps from './googleMaps'
 
@@ -49,13 +51,16 @@ class IpointShow extends React.Component {
                 fields: ['name', 'formatted_address','rating','geometry'],
                 placeId: gmap_id
             }
-            var service = new google.maps.places.PlacesService(this.googlePlaceShow.current)
-            service.getDetails(request, function(place, status) {
+            if( google !== undefined){
+                var service = new google.maps.places.PlacesService(this.googlePlaceShow.current)
+                service.getDetails(request, function(place, status) {
                 
-                if(status===google.maps.places.PlacesServiceStatus.OK) {
-                    ipointShow.gmapSetState(place)
-                }
-            })
+                    if(status===google.maps.places.PlacesServiceStatus.OK) {
+                        ipointShow.gmapSetState(place)
+                    }
+                })
+            } 
+            
         }
     }
 
@@ -70,6 +75,9 @@ class IpointShow extends React.Component {
         if (this.props.ipoint) {
             return (
                 <Grid container justify="center" direction="column" alignItems="center" spacing={5}>
+                    <Grid>
+                        <Button component={Link} to ={`/dates/${this.props.ipoint.itin_date_id}`}> Back to Itinerary</Button>
+                    </Grid>
                     <Grid item>
                         <Typography variant="h4">{this.state.name}</Typography>
                     </Grid>
